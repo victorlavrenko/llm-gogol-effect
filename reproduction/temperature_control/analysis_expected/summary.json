@@ -1,0 +1,281 @@
+{
+  "summary": [
+    {
+      "temperature": "0.0",
+      "model_id": "gpt-5.5",
+      "metric": "post_minus_live",
+      "n_prompts": 10,
+      "mean": 5.166666666666667,
+      "bootstrap_lo": 1.5666666666666678,
+      "bootstrap_hi": 9.883333333333333
+    },
+    {
+      "temperature": "0.0",
+      "model_id": "gpt-5.5",
+      "metric": "replay_minus_live",
+      "n_prompts": 10,
+      "mean": -1.9666666666666663,
+      "bootstrap_lo": -4.066666666666666,
+      "bootstrap_hi": 1.0658141036401502e-15
+    },
+    {
+      "temperature": "0.0",
+      "model_id": "gpt-5.5",
+      "metric": "post_minus_replay",
+      "n_prompts": 10,
+      "mean": 7.133333333333333,
+      "bootstrap_lo": 3.1333333333333337,
+      "bootstrap_hi": 11.833333333333332
+    },
+    {
+      "temperature": "0.0",
+      "model_id": "gpt-5.5",
+      "metric": "live_post_spearman",
+      "n_prompts": 10,
+      "mean": 0.7300313598106071,
+      "bootstrap_lo": 0.5488217024981449,
+      "bootstrap_hi": 0.8826695885516406
+    },
+    {
+      "temperature": "0.0",
+      "model_id": "gemini-3.1-pro-preview",
+      "metric": "post_minus_live",
+      "n_prompts": 10,
+      "mean": 25.261904761904763,
+      "bootstrap_lo": 16.797619047619047,
+      "bootstrap_hi": 33.80952380952381
+    },
+    {
+      "temperature": "0.0",
+      "model_id": "gemini-3.1-pro-preview",
+      "metric": "replay_minus_live",
+      "n_prompts": 10,
+      "mean": -0.011904761904762218,
+      "bootstrap_lo": -2.630952380952381,
+      "bootstrap_hi": 3.964285714285713
+    },
+    {
+      "temperature": "0.0",
+      "model_id": "gemini-3.1-pro-preview",
+      "metric": "post_minus_replay",
+      "n_prompts": 10,
+      "mean": 25.273809523809526,
+      "bootstrap_lo": 17.595238095238095,
+      "bootstrap_hi": 32.88095238095238
+    },
+    {
+      "temperature": "0.0",
+      "model_id": "gemini-3.1-pro-preview",
+      "metric": "live_post_spearman",
+      "n_prompts": 10,
+      "mean": 0.18433596787486115,
+      "bootstrap_lo": -0.12873906290277742,
+      "bootstrap_hi": 0.48766190541776666
+    },
+    {
+      "temperature": "0.7",
+      "model_id": "gpt-5.5",
+      "metric": "post_minus_live",
+      "n_prompts": 10,
+      "mean": 1.9500000000000006,
+      "bootstrap_lo": -1.4833333333333327,
+      "bootstrap_hi": 6.200000000000001
+    },
+    {
+      "temperature": "0.7",
+      "model_id": "gpt-5.5",
+      "metric": "replay_minus_live",
+      "n_prompts": 10,
+      "mean": -3.7166666666666663,
+      "bootstrap_lo": -6.283333333333334,
+      "bootstrap_hi": -1.1833333333333336
+    },
+    {
+      "temperature": "0.7",
+      "model_id": "gpt-5.5",
+      "metric": "post_minus_replay",
+      "n_prompts": 10,
+      "mean": 5.666666666666667,
+      "bootstrap_lo": 1.7500000000000007,
+      "bootstrap_hi": 10.283333333333335
+    },
+    {
+      "temperature": "0.7",
+      "model_id": "gpt-5.5",
+      "metric": "live_post_spearman",
+      "n_prompts": 10,
+      "mean": 0.8971428571428571,
+      "bootstrap_lo": 0.8571428571428571,
+      "bootstrap_hi": 0.9314285714285715
+    },
+    {
+      "temperature": "0.7",
+      "model_id": "gemini-3.1-pro-preview",
+      "metric": "post_minus_live",
+      "n_prompts": 10,
+      "mean": 13.866666666666669,
+      "bootstrap_lo": 8.33095238095238,
+      "bootstrap_hi": 19.735714285714288
+    },
+    {
+      "temperature": "0.7",
+      "model_id": "gemini-3.1-pro-preview",
+      "metric": "replay_minus_live",
+      "n_prompts": 10,
+      "mean": -1.6333333333333335,
+      "bootstrap_lo": -4.65,
+      "bootstrap_hi": 1.4666666666666668
+    },
+    {
+      "temperature": "0.7",
+      "model_id": "gemini-3.1-pro-preview",
+      "metric": "post_minus_replay",
+      "n_prompts": 10,
+      "mean": 15.5,
+      "bootstrap_lo": 10.166666666666666,
+      "bootstrap_hi": 21.20714285714286
+    },
+    {
+      "temperature": "0.7",
+      "model_id": "gemini-3.1-pro-preview",
+      "metric": "live_post_spearman",
+      "n_prompts": 10,
+      "mean": 0.541384236425028,
+      "bootstrap_lo": 0.322368303925204,
+      "bootstrap_hi": 0.7519410695563888
+    }
+  ],
+  "paired_temperature_difference": [
+    {
+      "model_id": "gpt-5.5",
+      "metric": "post_minus_live",
+      "n_paired": 10,
+      "mean_temp0_minus_temp07": 3.216666666666666,
+      "bootstrap_lo": 1.016666666666666,
+      "bootstrap_hi": 5.316666666666666
+    },
+    {
+      "model_id": "gpt-5.5",
+      "metric": "replay_minus_live",
+      "n_paired": 10,
+      "mean_temp0_minus_temp07": 1.75,
+      "bootstrap_lo": -1.8333333333333335,
+      "bootstrap_hi": 5.383333333333334
+    },
+    {
+      "model_id": "gpt-5.5",
+      "metric": "post_minus_replay",
+      "n_paired": 10,
+      "mean_temp0_minus_temp07": 1.4666666666666661,
+      "bootstrap_lo": -2.1833333333333345,
+      "bootstrap_hi": 5.183333333333333
+    },
+    {
+      "model_id": "gpt-5.5",
+      "metric": "live_post_spearman",
+      "n_paired": 10,
+      "mean_temp0_minus_temp07": -0.16711149733225011,
+      "bootstrap_lo": -0.35543265197696233,
+      "bootstrap_hi": -0.020187554305502214
+    },
+    {
+      "model_id": "gemini-3.1-pro-preview",
+      "metric": "post_minus_live",
+      "n_paired": 10,
+      "mean_temp0_minus_temp07": 11.395238095238096,
+      "bootstrap_lo": 2.738095238095238,
+      "bootstrap_hi": 20.77857142857143
+    },
+    {
+      "model_id": "gemini-3.1-pro-preview",
+      "metric": "replay_minus_live",
+      "n_paired": 10,
+      "mean_temp0_minus_temp07": 1.6214285714285712,
+      "bootstrap_lo": -3.5904761904761906,
+      "bootstrap_hi": 7.933333333333333
+    },
+    {
+      "model_id": "gemini-3.1-pro-preview",
+      "metric": "post_minus_replay",
+      "n_paired": 10,
+      "mean_temp0_minus_temp07": 9.773809523809524,
+      "bootstrap_lo": 1.9023809523809514,
+      "bootstrap_hi": 16.000000000000004
+    },
+    {
+      "model_id": "gemini-3.1-pro-preview",
+      "metric": "live_post_spearman",
+      "n_paired": 10,
+      "mean_temp0_minus_temp07": -0.3570482685501668,
+      "bootstrap_lo": -0.7511694745150839,
+      "bootstrap_hi": 0.05705177415654419
+    }
+  ],
+  "model_contrasts": [
+    {
+      "temperature": "0.0",
+      "metric": "post_minus_live",
+      "n_paired": 10,
+      "mean_gemini_minus_gpt": 20.095238095238095,
+      "bootstrap_lo": 14.021428571428572,
+      "bootstrap_hi": 26.53809523809524
+    },
+    {
+      "temperature": "0.0",
+      "metric": "replay_minus_live",
+      "n_paired": 10,
+      "mean_gemini_minus_gpt": 1.9547619047619045,
+      "bootstrap_lo": -1.7047619047619051,
+      "bootstrap_hi": 6.347619047619046
+    },
+    {
+      "temperature": "0.0",
+      "metric": "post_minus_replay",
+      "n_paired": 10,
+      "mean_gemini_minus_gpt": 18.14047619047619,
+      "bootstrap_lo": 11.157142857142857,
+      "bootstrap_hi": 25.719047619047622
+    },
+    {
+      "temperature": "0.0",
+      "metric": "live_post_spearman",
+      "n_paired": 10,
+      "mean_gemini_minus_gpt": -0.5456953919357459,
+      "bootstrap_lo": -0.8400513181609114,
+      "bootstrap_hi": -0.26802285279495613
+    },
+    {
+      "temperature": "0.7",
+      "metric": "post_minus_live",
+      "n_paired": 10,
+      "mean_gemini_minus_gpt": 11.916666666666666,
+      "bootstrap_lo": 3.9904761904761896,
+      "bootstrap_hi": 18.96904761904762
+    },
+    {
+      "temperature": "0.7",
+      "metric": "replay_minus_live",
+      "n_paired": 10,
+      "mean_gemini_minus_gpt": 2.083333333333333,
+      "bootstrap_lo": -0.8500000000000003,
+      "bootstrap_hi": 5.133333333333333
+    },
+    {
+      "temperature": "0.7",
+      "metric": "post_minus_replay",
+      "n_paired": 10,
+      "mean_gemini_minus_gpt": 9.833333333333332,
+      "bootstrap_lo": 3.4809523809523824,
+      "bootstrap_hi": 15.728571428571428
+    },
+    {
+      "temperature": "0.7",
+      "metric": "live_post_spearman",
+      "n_paired": 10,
+      "mean_gemini_minus_gpt": -0.3557586207178292,
+      "bootstrap_lo": -0.5909031409996469,
+      "bootstrap_hi": -0.13447681182883192
+    }
+  ],
+  "bootstrap": "prompt-level percentile bootstrap, B=20000, deterministic SHA-256-derived seeds"
+}

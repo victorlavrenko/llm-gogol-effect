@@ -1,0 +1,587 @@
+{
+  "claude-opus-5": {
+    "history": [
+      {
+        "ci95_gogol_total": [
+          -12.763087747001855,
+          7.905944889858997
+        ],
+        "cumulative_raw_p": 0.7455851007872285,
+        "cumulative_wilcoxon_p": 0.5625,
+        "extension_raw_p_new_only": NaN,
+        "extension_seq_adjusted_p": NaN,
+        "mean_gogol_total": -2.428571428571429,
+        "mean_ikea_total": -1.5982142857142847,
+        "median_gogol_total": 0.01785714285714235,
+        "model_id": "claude-opus-5",
+        "n_new": 0,
+        "n_pilot": 4,
+        "n_total": 4,
+        "new_question_ids": [],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      },
+      {
+        "ci95_gogol_total": [
+          -5.413696651023225,
+          2.083339508166083
+        ],
+        "cumulative_raw_p": 0.8357848490787285,
+        "cumulative_wilcoxon_p": 0.6796875,
+        "extension_raw_p_new_only": 0.8070222441720774,
+        "extension_seq_adjusted_p": 1.0,
+        "mean_gogol_total": -1.6651785714285712,
+        "mean_ikea_total": -4.285714285714286,
+        "median_gogol_total": -0.5446428571428559,
+        "model_id": "claude-opus-5",
+        "n_new": 4,
+        "n_pilot": 4,
+        "n_total": 8,
+        "new_question_ids": [
+          "p027",
+          "p021",
+          "p086",
+          "p013"
+        ],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      },
+      {
+        "ci95_gogol_total": [
+          -3.974147133505296,
+          1.1973614192195827
+        ],
+        "cumulative_raw_p": 0.8688973000357721,
+        "cumulative_wilcoxon_p": 0.830322265625,
+        "extension_raw_p_new_only": 0.8075726264991806,
+        "extension_seq_adjusted_p": 1.0,
+        "mean_gogol_total": -1.3883928571428565,
+        "mean_ikea_total": -3.9211309523809526,
+        "median_gogol_total": -0.7142857142857135,
+        "model_id": "claude-opus-5",
+        "n_new": 8,
+        "n_pilot": 4,
+        "n_total": 12,
+        "new_question_ids": [
+          "p027",
+          "p021",
+          "p086",
+          "p013",
+          "p015",
+          "p054",
+          "p029",
+          "p045"
+        ],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      },
+      {
+        "ci95_gogol_total": [
+          -3.805532398147421,
+          0.8390145410045653
+        ],
+        "cumulative_raw_p": 0.9032525154760067,
+        "cumulative_wilcoxon_p": 0.85107421875,
+        "extension_raw_p_new_only": 0.8490013651734618,
+        "extension_seq_adjusted_p": 1.0,
+        "mean_gogol_total": -1.483258928571428,
+        "mean_ikea_total": -3.895089285714286,
+        "median_gogol_total": -0.7142857142857135,
+        "model_id": "claude-opus-5",
+        "n_new": 12,
+        "n_pilot": 4,
+        "n_total": 16,
+        "new_question_ids": [
+          "p027",
+          "p021",
+          "p086",
+          "p013",
+          "p015",
+          "p054",
+          "p029",
+          "p045",
+          "p012",
+          "p033",
+          "p068",
+          "p034"
+        ],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      },
+      {
+        "ci95_gogol_total": [
+          -4.542903808332554,
+          -0.2588819059531584
+        ],
+        "cumulative_raw_p": 0.9850104559338013,
+        "cumulative_wilcoxon_p": 0.9779729843139648,
+        "extension_raw_p_new_only": 0.9800953789895146,
+        "extension_seq_adjusted_p": 1.0,
+        "mean_gogol_total": -2.400892857142856,
+        "mean_ikea_total": -3.4875,
+        "median_gogol_total": -1.285714285714283,
+        "model_id": "claude-opus-5",
+        "n_new": 16,
+        "n_pilot": 4,
+        "n_total": 20,
+        "new_question_ids": [
+          "p027",
+          "p021",
+          "p086",
+          "p013",
+          "p015",
+          "p054",
+          "p029",
+          "p045",
+          "p012",
+          "p033",
+          "p068",
+          "p034",
+          "p025",
+          "p081",
+          "p077",
+          "p096"
+        ],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      },
+      {
+        "ci95_gogol_total": [
+          -4.151853107528948,
+          0.05512691705275907
+        ],
+        "cumulative_raw_p": 0.9720993262154103,
+        "cumulative_wilcoxon_p": 0.962934613997543,
+        "extension_raw_p_new_only": 0.9581687439907204,
+        "extension_seq_adjusted_p": 1.0,
+        "mean_gogol_total": -2.048363095238095,
+        "mean_ikea_total": -3.0133928571428577,
+        "median_gogol_total": -1.285714285714283,
+        "model_id": "claude-opus-5",
+        "n_new": 20,
+        "n_pilot": 4,
+        "n_total": 24,
+        "new_question_ids": [
+          "p027",
+          "p021",
+          "p086",
+          "p013",
+          "p015",
+          "p054",
+          "p029",
+          "p045",
+          "p012",
+          "p033",
+          "p068",
+          "p034",
+          "p025",
+          "p081",
+          "p077",
+          "p096",
+          "p066",
+          "p035",
+          "p040",
+          "p056"
+        ],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      }
+    ],
+    "reason": null,
+    "stopped": false,
+    "stopped_at_total_n": null
+  },
+  "deepseek-v4-flash": {
+    "history": [
+      {
+        "ci95_gogol_total": [
+          -10.018216001254522,
+          10.718216001254522
+        ],
+        "cumulative_raw_p": 0.46061478938721556,
+        "cumulative_wilcoxon_p": 0.625,
+        "extension_raw_p_new_only": NaN,
+        "extension_seq_adjusted_p": NaN,
+        "mean_gogol_total": 0.34999999999999964,
+        "mean_ikea_total": -8.5,
+        "median_gogol_total": -1.25,
+        "model_id": "deepseek-v4-flash",
+        "n_new": 0,
+        "n_pilot": 4,
+        "n_total": 4,
+        "new_question_ids": [],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      },
+      {
+        "ci95_gogol_total": [
+          -1.5831519634212188,
+          6.623628153897409
+        ],
+        "cumulative_raw_p": 0.09485911120480364,
+        "cumulative_wilcoxon_p": 0.109375,
+        "extension_raw_p_new_only": 0.0016638879455698834,
+        "extension_seq_adjusted_p": 0.008319439727849418,
+        "mean_gogol_total": 2.520238095238095,
+        "mean_ikea_total": -8.0,
+        "median_gogol_total": 3.797619047619047,
+        "model_id": "deepseek-v4-flash",
+        "n_new": 4,
+        "n_pilot": 4,
+        "n_total": 8,
+        "new_question_ids": [
+          "p046",
+          "p054",
+          "p056",
+          "p034"
+        ],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      },
+      {
+        "ci95_gogol_total": [
+          -0.10839564863633466,
+          6.459784537525223
+        ],
+        "cumulative_raw_p": 0.028371490951744308,
+        "cumulative_wilcoxon_p": 0.04150390625,
+        "extension_raw_p_new_only": 0.00804248346578403,
+        "extension_seq_adjusted_p": 0.040212417328920155,
+        "mean_gogol_total": 3.1756944444444444,
+        "mean_ikea_total": -8.403273809523808,
+        "median_gogol_total": 3.797619047619047,
+        "model_id": "deepseek-v4-flash",
+        "n_new": 8,
+        "n_pilot": 4,
+        "n_total": 12,
+        "new_question_ids": [
+          "p046",
+          "p054",
+          "p056",
+          "p034",
+          "p021",
+          "p018",
+          "p066",
+          "p095"
+        ],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      }
+    ],
+    "reason": "cumulative raw p<=.05 (adaptive/exploratory)",
+    "stopped": true,
+    "stopped_at_total_n": 12
+  },
+  "gpt-oss-120b": {
+    "history": [
+      {
+        "ci95_gogol_total": [
+          -3.2552588436410588,
+          17.838592176974394
+        ],
+        "cumulative_raw_p": 0.057575253663195804,
+        "cumulative_wilcoxon_p": 0.125,
+        "extension_raw_p_new_only": NaN,
+        "extension_seq_adjusted_p": NaN,
+        "mean_gogol_total": 7.291666666666668,
+        "mean_ikea_total": -6.958333333333334,
+        "median_gogol_total": 8.25,
+        "model_id": "gpt-oss-120b",
+        "n_new": 0,
+        "n_pilot": 4,
+        "n_total": 4,
+        "new_question_ids": [],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      },
+      {
+        "ci95_gogol_total": [
+          5.095705853611682,
+          14.904294146388317
+        ],
+        "cumulative_raw_p": 0.0009590282996157332,
+        "cumulative_wilcoxon_p": 0.0078125,
+        "extension_raw_p_new_only": 0.004226024220683727,
+        "extension_seq_adjusted_p": 0.021130121103418633,
+        "mean_gogol_total": 10.0,
+        "mean_ikea_total": -6.479166666666667,
+        "median_gogol_total": 9.416666666666668,
+        "model_id": "gpt-oss-120b",
+        "n_new": 4,
+        "n_pilot": 4,
+        "n_total": 8,
+        "new_question_ids": [
+          "p066",
+          "p021",
+          "p015",
+          "p033"
+        ],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      }
+    ],
+    "reason": "cumulative raw p<=.05 (adaptive/exploratory)",
+    "stopped": true,
+    "stopped_at_total_n": 8
+  },
+  "llama-3.3-70b-instruct": {
+    "history": [
+      {
+        "ci95_gogol_total": [
+          -24.27465638344225,
+          27.310370669156534
+        ],
+        "cumulative_raw_p": 0.431694609680633,
+        "cumulative_wilcoxon_p": 0.4375,
+        "extension_raw_p_new_only": NaN,
+        "extension_seq_adjusted_p": NaN,
+        "mean_gogol_total": 1.5178571428571437,
+        "mean_ikea_total": -3.910714285714286,
+        "median_gogol_total": 0.7142857142857144,
+        "model_id": "llama-3.3-70b-instruct",
+        "n_new": 0,
+        "n_pilot": 4,
+        "n_total": 4,
+        "new_question_ids": [],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      },
+      {
+        "ci95_gogol_total": [
+          -8.440881340542768,
+          11.530167054828484
+        ],
+        "cumulative_raw_p": 0.3626666739364623,
+        "cumulative_wilcoxon_p": 0.37109375,
+        "extension_raw_p_new_only": 0.3662075994596785,
+        "extension_seq_adjusted_p": 1.0,
+        "mean_gogol_total": 1.5446428571428583,
+        "mean_ikea_total": -5.296875000000001,
+        "median_gogol_total": 1.3571428571428568,
+        "model_id": "llama-3.3-70b-instruct",
+        "n_new": 4,
+        "n_pilot": 4,
+        "n_total": 8,
+        "new_question_ids": [
+          "p066",
+          "p021",
+          "p015",
+          "p033"
+        ],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      },
+      {
+        "ci95_gogol_total": [
+          -5.43567568036291,
+          6.825556632743864
+        ],
+        "cumulative_raw_p": 0.40378805437254084,
+        "cumulative_wilcoxon_p": 0.48291015625,
+        "extension_raw_p_new_only": 0.44655807409961773,
+        "extension_seq_adjusted_p": 1.0,
+        "mean_gogol_total": 0.6949404761904772,
+        "mean_ikea_total": -6.061011904761905,
+        "median_gogol_total": -0.9375,
+        "model_id": "llama-3.3-70b-instruct",
+        "n_new": 8,
+        "n_pilot": 4,
+        "n_total": 12,
+        "new_question_ids": [
+          "p066",
+          "p021",
+          "p015",
+          "p033",
+          "p082",
+          "p034",
+          "p095",
+          "p071"
+        ],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      },
+      {
+        "ci95_gogol_total": [
+          -3.503416832321618,
+          7.579309689464479
+        ],
+        "cumulative_raw_p": 0.22265565870124004,
+        "cumulative_wilcoxon_p": 0.30461753431839317,
+        "extension_raw_p_new_only": 0.1987014115355537,
+        "extension_seq_adjusted_p": 0.9935070576777685,
+        "mean_gogol_total": 2.03794642857143,
+        "mean_ikea_total": -6.386160714285714,
+        "median_gogol_total": 0.35714285714285676,
+        "model_id": "llama-3.3-70b-instruct",
+        "n_new": 12,
+        "n_pilot": 4,
+        "n_total": 16,
+        "new_question_ids": [
+          "p066",
+          "p021",
+          "p015",
+          "p033",
+          "p082",
+          "p034",
+          "p095",
+          "p071",
+          "p027",
+          "p054",
+          "p072",
+          "p084"
+        ],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      },
+      {
+        "ci95_gogol_total": [
+          -4.704318862045202,
+          4.977533147759491
+        ],
+        "cumulative_raw_p": 0.4767591631644316,
+        "cumulative_wilcoxon_p": 0.5797331691641663,
+        "extension_raw_p_new_only": 0.5360432981294033,
+        "extension_seq_adjusted_p": 1.0,
+        "mean_gogol_total": 0.13660714285714412,
+        "mean_ikea_total": -3.5848214285714293,
+        "median_gogol_total": -0.9375,
+        "model_id": "llama-3.3-70b-instruct",
+        "n_new": 16,
+        "n_pilot": 4,
+        "n_total": 20,
+        "new_question_ids": [
+          "p066",
+          "p021",
+          "p015",
+          "p033",
+          "p082",
+          "p034",
+          "p095",
+          "p071",
+          "p027",
+          "p054",
+          "p072",
+          "p084",
+          "p045",
+          "p029",
+          "p025",
+          "p012"
+        ],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      },
+      {
+        "ci95_gogol_total": [
+          -4.1042864535066785,
+          4.583453120173346
+        ],
+        "cumulative_raw_p": 0.4550761252087914,
+        "cumulative_wilcoxon_p": 0.5363530806998223,
+        "extension_raw_p_new_only": 0.5030478598321437,
+        "extension_seq_adjusted_p": 1.0,
+        "mean_gogol_total": 0.23958333333333423,
+        "mean_ikea_total": -3.8125000000000004,
+        "median_gogol_total": -0.625,
+        "model_id": "llama-3.3-70b-instruct",
+        "n_new": 20,
+        "n_pilot": 4,
+        "n_total": 24,
+        "new_question_ids": [
+          "p066",
+          "p021",
+          "p015",
+          "p033",
+          "p082",
+          "p034",
+          "p095",
+          "p071",
+          "p027",
+          "p054",
+          "p072",
+          "p084",
+          "p045",
+          "p029",
+          "p025",
+          "p012",
+          "p086",
+          "p096",
+          "p077",
+          "p073"
+        ],
+        "pilot_question_ids": [
+          "p001",
+          "p042",
+          "p044",
+          "p070"
+        ]
+      }
+    ],
+    "reason": null,
+    "stopped": false,
+    "stopped_at_total_n": null
+  }
+}

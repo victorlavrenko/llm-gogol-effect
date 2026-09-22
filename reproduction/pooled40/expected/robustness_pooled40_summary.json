@@ -1,0 +1,304 @@
+{
+  "bootstrap_replicates": 10000,
+  "bootstrap_unit": "prompt",
+  "variant_summaries": [
+    {
+      "cohort": "initial16",
+      "model_id": "gpt-5.5",
+      "variant_id": "original",
+      "n_questions": 16,
+      "mean_post_minus_live": 5.861607142857142,
+      "shift_ci_lo": 3.7440476190476195,
+      "shift_ci_hi": 8.001488095238095,
+      "mean_live_post_spearman": 0.6495871011661304
+    },
+    {
+      "cohort": "initial16",
+      "model_id": "gpt-5.5",
+      "variant_id": "paraphrase",
+      "n_questions": 16,
+      "mean_post_minus_live": 4.669642857142857,
+      "shift_ci_lo": 2.178571428571428,
+      "shift_ci_hi": 7.732142857142858,
+      "mean_live_post_spearman": 0.5014136634764264
+    },
+    {
+      "cohort": "initial16",
+      "model_id": "gpt-5.5",
+      "variant_id": "reverse",
+      "n_questions": 16,
+      "mean_post_minus_live": 2.46875,
+      "shift_ci_lo": 1.1339285714285716,
+      "shift_ci_hi": 4.044642857142857,
+      "mean_live_post_spearman": 0.35738234489408593
+    },
+    {
+      "cohort": "initial16",
+      "model_id": "gpt-5.5",
+      "variant_id": "minimal",
+      "n_questions": 16,
+      "mean_post_minus_live": 7.224702380952381,
+      "shift_ci_lo": 4.736607142857143,
+      "shift_ci_hi": 9.915178571428571,
+      "mean_live_post_spearman": 0.3020079230812707
+    },
+    {
+      "cohort": "initial16",
+      "model_id": "gemini-3.1-pro-preview",
+      "variant_id": "original",
+      "n_questions": 16,
+      "mean_post_minus_live": 14.325892857142858,
+      "shift_ci_lo": 6.553571428571429,
+      "shift_ci_hi": 22.99107142857143,
+      "mean_live_post_spearman": 0.5379398889103563
+    },
+    {
+      "cohort": "initial16",
+      "model_id": "gemini-3.1-pro-preview",
+      "variant_id": "paraphrase",
+      "n_questions": 16,
+      "mean_post_minus_live": 9.705729166666666,
+      "shift_ci_lo": 4.741071428571429,
+      "shift_ci_hi": 15.400669642857142,
+      "mean_live_post_spearman": 0.45927222102586895
+    },
+    {
+      "cohort": "initial16",
+      "model_id": "gemini-3.1-pro-preview",
+      "variant_id": "reverse",
+      "n_questions": 16,
+      "mean_post_minus_live": 4.972098214285714,
+      "shift_ci_lo": 1.7269345238095237,
+      "shift_ci_hi": 9.294642857142858,
+      "mean_live_post_spearman": 0.35117719254084934
+    },
+    {
+      "cohort": "initial16",
+      "model_id": "gemini-3.1-pro-preview",
+      "variant_id": "minimal",
+      "n_questions": 16,
+      "mean_post_minus_live": 17.203125,
+      "shift_ci_lo": 8.458705357142858,
+      "shift_ci_hi": 27.212053571428573,
+      "mean_live_post_spearman": 0.25070543777245374
+    },
+    {
+      "cohort": "extension24",
+      "model_id": "gpt-5.5",
+      "variant_id": "original",
+      "n_questions": 24,
+      "mean_post_minus_live": 6.557539682539683,
+      "shift_ci_lo": 3.735119047619048,
+      "shift_ci_hi": 9.869047619047619,
+      "mean_live_post_spearman": 0.6460276392217361
+    },
+    {
+      "cohort": "extension24",
+      "model_id": "gpt-5.5",
+      "variant_id": "paraphrase",
+      "n_questions": 24,
+      "mean_post_minus_live": 2.9466765873015874,
+      "shift_ci_lo": 0.828621031746032,
+      "shift_ci_hi": 5.324652777777778,
+      "mean_live_post_spearman": 0.5940800384379065
+    },
+    {
+      "cohort": "extension24",
+      "model_id": "gpt-5.5",
+      "variant_id": "reverse",
+      "n_questions": 24,
+      "mean_post_minus_live": 1.209325396825397,
+      "shift_ci_lo": 0.31547619047619035,
+      "shift_ci_hi": 2.123015873015873,
+      "mean_live_post_spearman": 0.5970705631112734
+    },
+    {
+      "cohort": "extension24",
+      "model_id": "gpt-5.5",
+      "variant_id": "minimal",
+      "n_questions": 24,
+      "mean_post_minus_live": 10.607142857142858,
+      "shift_ci_lo": 6.811507936507937,
+      "shift_ci_hi": 14.71031746031746,
+      "mean_live_post_spearman": 0.39414188944573386
+    },
+    {
+      "cohort": "extension24",
+      "model_id": "gemini-3.1-pro-preview",
+      "variant_id": "original",
+      "n_questions": 24,
+      "mean_post_minus_live": 8.93030753968254,
+      "shift_ci_lo": 4.904513888888888,
+      "shift_ci_hi": 13.45064484126984,
+      "mean_live_post_spearman": 0.5560683689657536
+    },
+    {
+      "cohort": "extension24",
+      "model_id": "gemini-3.1-pro-preview",
+      "variant_id": "paraphrase",
+      "n_questions": 24,
+      "mean_post_minus_live": 6.113095238095238,
+      "shift_ci_lo": 3.426339285714286,
+      "shift_ci_hi": 9.261904761904761,
+      "mean_live_post_spearman": 0.4393046475571847
+    },
+    {
+      "cohort": "extension24",
+      "model_id": "gemini-3.1-pro-preview",
+      "variant_id": "reverse",
+      "n_questions": 24,
+      "mean_post_minus_live": 6.241815476190475,
+      "shift_ci_lo": 3.4851190476190474,
+      "shift_ci_hi": 9.801339285714286,
+      "mean_live_post_spearman": 0.35450454257345876
+    },
+    {
+      "cohort": "extension24",
+      "model_id": "gemini-3.1-pro-preview",
+      "variant_id": "minimal",
+      "n_questions": 24,
+      "mean_post_minus_live": 13.15699404761905,
+      "shift_ci_lo": 7.319196428571428,
+      "shift_ci_hi": 20.438988095238095,
+      "mean_live_post_spearman": 0.3864045436628268
+    },
+    {
+      "cohort": "pooled40",
+      "model_id": "gpt-5.5",
+      "variant_id": "original",
+      "n_questions": 40,
+      "mean_post_minus_live": 6.279166666666667,
+      "shift_ci_lo": 4.385714285714285,
+      "shift_ci_hi": 8.479761904761904,
+      "mean_live_post_spearman": 0.6474514239994937
+    },
+    {
+      "cohort": "pooled40",
+      "model_id": "gpt-5.5",
+      "variant_id": "paraphrase",
+      "n_questions": 40,
+      "mean_post_minus_live": 3.6358630952380957,
+      "shift_ci_lo": 1.9291666666666665,
+      "shift_ci_hi": 5.454910714285715,
+      "mean_live_post_spearman": 0.5570134884533144
+    },
+    {
+      "cohort": "pooled40",
+      "model_id": "gpt-5.5",
+      "variant_id": "reverse",
+      "n_questions": 40,
+      "mean_post_minus_live": 1.7130952380952382,
+      "shift_ci_lo": 0.9327380952380953,
+      "shift_ci_hi": 2.5630952380952383,
+      "mean_live_post_spearman": 0.5011952758243984
+    },
+    {
+      "cohort": "pooled40",
+      "model_id": "gpt-5.5",
+      "variant_id": "minimal",
+      "n_questions": 40,
+      "mean_post_minus_live": 9.254166666666666,
+      "shift_ci_lo": 6.770833333333333,
+      "shift_ci_hi": 11.991666666666665,
+      "mean_live_post_spearman": 0.3572883028999486
+    },
+    {
+      "cohort": "pooled40",
+      "model_id": "gemini-3.1-pro-preview",
+      "variant_id": "original",
+      "n_questions": 40,
+      "mean_post_minus_live": 11.088541666666668,
+      "shift_ci_lo": 7.009672619047619,
+      "shift_ci_hi": 15.636160714285714,
+      "mean_live_post_spearman": 0.5488169769435947
+    },
+    {
+      "cohort": "pooled40",
+      "model_id": "gemini-3.1-pro-preview",
+      "variant_id": "paraphrase",
+      "n_questions": 40,
+      "mean_post_minus_live": 7.550148809523809,
+      "shift_ci_lo": 4.866666666666666,
+      "shift_ci_hi": 10.520535714285714,
+      "mean_live_post_spearman": 0.44729167694465843
+    },
+    {
+      "cohort": "pooled40",
+      "model_id": "gemini-3.1-pro-preview",
+      "variant_id": "reverse",
+      "n_questions": 40,
+      "mean_post_minus_live": 5.733928571428572,
+      "shift_ci_lo": 3.5125,
+      "shift_ci_hi": 8.359077380952382,
+      "mean_live_post_spearman": 0.353173602560415
+    },
+    {
+      "cohort": "pooled40",
+      "model_id": "gemini-3.1-pro-preview",
+      "variant_id": "minimal",
+      "n_questions": 40,
+      "mean_post_minus_live": 14.775446428571428,
+      "shift_ci_lo": 9.614732142857143,
+      "shift_ci_hi": 20.873660714285712,
+      "mean_live_post_spearman": 0.33212490130667754
+    }
+  ],
+  "matched_model_contrasts": [
+    {
+      "cohort": "initial16",
+      "n_matched_prompts": 16,
+      "mean_gemini_minus_gpt_post_live_shift": 6.495535714285714,
+      "ci_lo": 1.7938058035714282,
+      "ci_hi": 11.521112351190476
+    },
+    {
+      "cohort": "extension24",
+      "n_matched_prompts": 24,
+      "mean_gemini_minus_gpt_post_live_shift": 3.280381944444444,
+      "ci_lo": 0.7243303571428569,
+      "ci_hi": 5.970300099206349
+    },
+    {
+      "cohort": "pooled40",
+      "n_matched_prompts": 40,
+      "mean_gemini_minus_gpt_post_live_shift": 4.566443452380953,
+      "ci_lo": 2.0505208333333336,
+      "ci_hi": 7.269122023809524
+    }
+  ],
+  "pooled_variant_model_contrasts": [
+    {
+      "cohort": "pooled40",
+      "variant_id": "original",
+      "n_matched_prompts": 40,
+      "mean_gemini_minus_gpt_post_live_shift": 4.809375,
+      "ci_lo": 0.5800595238095237,
+      "ci_hi": 9.413839285714285
+    },
+    {
+      "cohort": "pooled40",
+      "variant_id": "paraphrase",
+      "n_matched_prompts": 40,
+      "mean_gemini_minus_gpt_post_live_shift": 3.9142857142857137,
+      "ci_lo": 1.035565476190476,
+      "ci_hi": 6.999404761904761
+    },
+    {
+      "cohort": "pooled40",
+      "variant_id": "reverse",
+      "n_matched_prompts": 40,
+      "mean_gemini_minus_gpt_post_live_shift": 4.020833333333334,
+      "ci_lo": 1.6924107142857139,
+      "ci_hi": 6.731101190476191
+    },
+    {
+      "cohort": "pooled40",
+      "variant_id": "minimal",
+      "n_matched_prompts": 40,
+      "mean_gemini_minus_gpt_post_live_shift": 5.521279761904762,
+      "ci_lo": 0.3815476190476195,
+      "ci_hi": 10.966220238095238
+    }
+  ],
+  "reporting_note": "The 24-prompt extension was frozen after observing the initial 16-prompt robustness cohort; initial16, extension24, and pooled40 are therefore reported separately."
+}

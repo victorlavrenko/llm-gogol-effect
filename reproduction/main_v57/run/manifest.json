@@ -1,0 +1,1413 @@
+{
+  "code_version": "5.7",
+  "script_filename": "self_confidence_v5_7_promptbank.py",
+  "script_sha256": "d269f683255692e51aaf6266b4e886032e2333c98e5db8852a0b58fbba5b488a",
+  "schema_version": "5.3",
+  "prompt_version": "ai-likeness-single-objective-v5.2",
+  "replay_version": "question-level-full-sequential-replay-v1",
+  "adaptive_version": "fixed-looks-bonferroni-promptbank-v2",
+  "pilot_data_included": false,
+  "prompt_bank": {
+    "version": "prompts-v3",
+    "sha256": "be451428045e8b9fc2460d440ea2c962f3338237e87c3fa7dd6fff490569b5bf",
+    "n_prompts": 110,
+    "subsets": {
+      "primary_english": 100,
+      "russian_validation": 10
+    },
+    "domains": {
+      "arts_culture": 10,
+      "biology_medicine": 12,
+      "economics": 11,
+      "food_culture": 12,
+      "geography": 11,
+      "history": 11,
+      "language": 10,
+      "misconceptions": 10,
+      "science": 12,
+      "technology": 11
+    },
+    "languages": {
+      "en": 100,
+      "ru": 10
+    }
+  },
+  "primary_subset": "primary_english",
+  "russian_validation_subset": "russian_validation",
+  "russian_validation_question_ids": [
+    "ru08",
+    "ru10",
+    "ru07",
+    "ru04",
+    "ru05",
+    "ru06",
+    "ru02",
+    "ru01",
+    "ru03",
+    "ru09"
+  ],
+  "seed": 20260907,
+  "min_cases": 40,
+  "batch_size": 10,
+  "max_cases": 100,
+  "planned_looks": [
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100
+  ],
+  "familywise_sequential_alpha": 0.05,
+  "per_look_boundary": 0.0071428571428571435,
+  "stopping_rule": "At a planned look, stop for success only if all three prespecified component tests cross alpha/K, where K is the total number of planned looks. This Bonferroni-across-looks rule controls optional stopping conservatively. Otherwise continue to max_cases.",
+  "primary_endpoint": "live-post",
+  "primary_model": "gpt-5.5",
+  "primary_rho0": 0.2,
+  "state_model": "gemini-3.1-pro-preview",
+  "minimum_state_shift": 5.0,
+  "minimum_model_difference": 5.0,
+  "external_ratings": null,
+  "replay_fraction": 0.1,
+  "temperature": 0.7,
+  "workers": 20,
+  "per_model_workers": 1,
+  "retries": 3,
+  "max_retry_delay": 20.0,
+  "live_max_tokens": 4096,
+  "post_max_tokens": 4096,
+  "replay_max_tokens": 1024,
+  "system_prompt": "Follow the user's writing task and formatting instructions exactly. Return only the requested output.",
+  "ai_score_instruction": "After every sentence, assess how likely an average human reader would be to think that sentence was AI-generated. Use an integer from 0 to 100, where 0 means very human-like and 100 means obviously AI-generated. Put the sentence's normal closing punctuation first, then immediately append the assessment as <AI SCORE: n>.",
+  "models": {
+    "gpt-5.5": "openai/gpt-5.5",
+    "claude-opus-5": "anthropic/claude-opus-5",
+    "gemini-3.1-pro-preview": "google/gemini-3.1-pro-preview",
+    "deepseek-v4-flash": "deepseek/deepseek-v4-flash-0731",
+    "deepseek-v3.2": "deepseek/deepseek-v3.2",
+    "gpt-oss-120b": "openai/gpt-oss-120b",
+    "llama-3.3-70b-instruct": "meta-llama/llama-3.3-70b-instruct",
+    "qwen3-30b-a3b-instruct-2507": "qwen/qwen3-30b-a3b-instruct-2507",
+    "ministral-3-14b-2512": "mistralai/ministral-14b-2512",
+    "gemma-3-12b-it": "google/gemma-3-12b-it"
+  },
+  "provider_policy": "OpenRouter automatic provider routing with fallbacks enabled",
+  "model_min_interval_seconds": {
+    "gemma-3-12b-it": 6.0
+  },
+  "replay_question_ids_at_max": [
+    "p001",
+    "p008",
+    "p019",
+    "p026",
+    "p042",
+    "p044",
+    "p050",
+    "p057",
+    "p070",
+    "p087"
+  ],
+  "questions_at_max": [
+    {
+      "question_id": "p086",
+      "family": "arts_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nOlder films were made for many different screen shapes. Write a short post explaining what an aspect ratio is and why cropping a classic film to fill a modern television can remove part of the original composition.",
+      "metadata": {
+        "case_index": 0,
+        "prompt_id": "p086",
+        "domain": "arts_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p042",
+      "family": "economics",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhy does compound interest become much more noticeable over long periods than over the first few years? Explain the idea in a social-media post without relying on a formula.",
+      "metadata": {
+        "case_index": 1,
+        "prompt_id": "p042",
+        "domain": "economics",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p015",
+      "family": "science",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhy does ice float instead of sinking in liquid water? Explain the unusual property behind it and why it matters beyond a glass of iced water.",
+      "metadata": {
+        "case_index": 2,
+        "prompt_id": "p015",
+        "domain": "science",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p095",
+      "family": "misconceptions",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nShaving is often said to make hair grow back thicker and darker. Write a brief post explaining why regrowth can look or feel different without the hair follicle actually becoming thicker.",
+      "metadata": {
+        "case_index": 3,
+        "prompt_id": "p095",
+        "domain": "misconceptions",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p052",
+      "family": "geography",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nGreat Britain, the United Kingdom, and England are not interchangeable names. Write a concise social-media explanation of how they differ.",
+      "metadata": {
+        "case_index": 4,
+        "prompt_id": "p052",
+        "domain": "geography",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p002",
+      "family": "history",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhat happened on April 12, 1961? Turn the answer into a concise post for a general audience, including why the event mattered beyond the achievement itself.",
+      "metadata": {
+        "case_index": 5,
+        "prompt_id": "p002",
+        "domain": "history",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p021",
+      "family": "biology_medicine",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhy can someone with a rising fever feel cold enough to shiver even while their body temperature is already high? Explain the apparent contradiction in a short general-audience post.",
+      "metadata": {
+        "case_index": 6,
+        "prompt_id": "p021",
+        "domain": "biology_medicine",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p072",
+      "family": "language",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nEnglish spelling often preserves traces of older pronunciations. Write a short post using one or two examples to explain why spelling and modern pronunciation can diverge so much.",
+      "metadata": {
+        "case_index": 7,
+        "prompt_id": "p072",
+        "domain": "language",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p034",
+      "family": "technology",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhy can a ZIP file dramatically shrink some files but barely shrink others such as JPEG photos or MP4 videos? Write a short explanation of compression and already-compressed formats.",
+      "metadata": {
+        "case_index": 8,
+        "prompt_id": "p034",
+        "domain": "technology",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p066",
+      "family": "food_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nSushi does not simply mean 'raw fish.' Write a short post explaining what actually defines sushi and why some common sushi contains no raw seafood at all.",
+      "metadata": {
+        "case_index": 9,
+        "prompt_id": "p066",
+        "domain": "food_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p082",
+      "family": "arts_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nPicasso's Guernica is often reproduced as an anti-war image. Write a concise post explaining the historical event behind the painting and a few features that contribute to its impact.",
+      "metadata": {
+        "case_index": 10,
+        "prompt_id": "p082",
+        "domain": "arts_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p045",
+      "family": "economics",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWrite a short post explaining opportunity cost using a normal everyday decision rather than a business-school definition.",
+      "metadata": {
+        "case_index": 11,
+        "prompt_id": "p045",
+        "domain": "economics",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p012",
+      "family": "science",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhy can a metal bench feel much colder than a wooden bench even when both have been outside at exactly the same temperature? Explain it in a way that would work in a short science post.",
+      "metadata": {
+        "case_index": 12,
+        "prompt_id": "p012",
+        "domain": "science",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p096",
+      "family": "misconceptions",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nBats are not actually blind. Write a short post explaining what echolocation adds to their senses and why the phrase 'blind as a bat' is misleading.",
+      "metadata": {
+        "case_index": 13,
+        "prompt_id": "p096",
+        "domain": "misconceptions",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p060",
+      "family": "geography",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nIceland and Greenland have names that can sound geographically backwards to a modern visitor. Write a short post explaining where the names came from and why the simple 'one is icy, one is green' joke misses the history.",
+      "metadata": {
+        "case_index": 14,
+        "prompt_id": "p060",
+        "domain": "geography",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p004",
+      "family": "history",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWrite a short historical post centered on November 11, 1918. Explain what changed that day and why the date became symbolically important in several countries.",
+      "metadata": {
+        "case_index": 15,
+        "prompt_id": "p004",
+        "domain": "history",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p025",
+      "family": "biology_medicine",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nFingers wrinkle after spending time in water. Write a short post explaining why this is not simply skin soaking up water and what role the nervous system appears to play.",
+      "metadata": {
+        "case_index": 16,
+        "prompt_id": "p025",
+        "domain": "biology_medicine",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p077",
+      "family": "language",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nPeople sometimes call Mandarin and Cantonese 'dialects' and assume that means speakers can automatically understand one another. Write a short post explaining why the linguistic and political terminology is more complicated.",
+      "metadata": {
+        "case_index": 17,
+        "prompt_id": "p077",
+        "domain": "language",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p033",
+      "family": "technology",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nQR codes can remain readable even when part of the pattern is scratched or covered. Explain in a short post how that is possible without diving into mathematical details.",
+      "metadata": {
+        "case_index": 18,
+        "prompt_id": "p033",
+        "domain": "technology",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p070",
+      "family": "food_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nTacos and burritos are both associated internationally with Mexican food, but they are not simply the same dish in different sizes. Write a short post explaining the basic structural and cultural differences.",
+      "metadata": {
+        "case_index": 19,
+        "prompt_id": "p070",
+        "domain": "food_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p084",
+      "family": "arts_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nBauhaus design is associated with simple geometry and functionalism, but it was more than a visual style. Write a short post explaining what the school was trying to do and why its influence spread so widely.",
+      "metadata": {
+        "case_index": 20,
+        "prompt_id": "p084",
+        "domain": "arts_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p046",
+      "family": "economics",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nPeople often keep spending on a bad plan because they have already invested money or time in it. Explain the sunk-cost fallacy in a short post and why past spending should not determine the next decision.",
+      "metadata": {
+        "case_index": 21,
+        "prompt_id": "p046",
+        "domain": "economics",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p018",
+      "family": "science",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhy does a sunset often look red or orange while the daytime sky looks blue? Write a short explanation that connects both colors to the same physical process.",
+      "metadata": {
+        "case_index": 22,
+        "prompt_id": "p018",
+        "domain": "science",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p099",
+      "family": "misconceptions",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nCold weather by itself does not create a viral infection, yet respiratory infections often become more common in colder seasons. Write a short post explaining why both statements can be true.",
+      "metadata": {
+        "case_index": 23,
+        "prompt_id": "p099",
+        "domain": "misconceptions",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p056",
+      "family": "geography",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhy do many places around the Mediterranean have relatively mild, wet winters and hot, dry summers? Write a concise post describing the broad climate pattern.",
+      "metadata": {
+        "case_index": 24,
+        "prompt_id": "p056",
+        "domain": "geography",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p001",
+      "family": "history",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nA history account wants to mark October 4, 1957 without assuming readers know the date. Write a short social-media post explaining what happened and why the event changed the technological and political climate of its era.",
+      "metadata": {
+        "case_index": 25,
+        "prompt_id": "p001",
+        "domain": "history",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p029",
+      "family": "biology_medicine",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nJet lag is more than just being tired after a flight. Explain in a short post what happens to the body's circadian timing and why crossing several time zones can make sleep feel wrong at the destination.",
+      "metadata": {
+        "case_index": 26,
+        "prompt_id": "p029",
+        "domain": "biology_medicine",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p071",
+      "family": "language",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nJapanese uses kanji, hiragana, and katakana in the same writing system. Write a short post explaining what each one is mainly used for and why Japanese did not simply choose one script.",
+      "metadata": {
+        "case_index": 27,
+        "prompt_id": "p071",
+        "domain": "language",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p040",
+      "family": "technology",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nPeople talk about putting files 'in the cloud' as if they stop existing on physical computers. Write a short social-media explanation of what cloud storage really means in practical terms.",
+      "metadata": {
+        "case_index": 28,
+        "prompt_id": "p040",
+        "domain": "technology",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p068",
+      "family": "food_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nTea culture in Britain and Japan both gives social importance to tea, but the traditions developed in very different ways. Write a short comparison focused on preparation, setting, and social meaning.",
+      "metadata": {
+        "case_index": 29,
+        "prompt_id": "p068",
+        "domain": "food_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p081",
+      "family": "arts_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhy did Impressionist paintings look so radical to many nineteenth-century viewers? Write a short post explaining what the painters were doing differently and how exhibition practices helped shape the movement.",
+      "metadata": {
+        "case_index": 30,
+        "prompt_id": "p081",
+        "domain": "arts_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p044",
+      "family": "economics",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nCentral banks raise interest rates partly to cool inflation, but the same move can make mortgages and business loans more expensive. Explain this trade-off in a concise post for non-economists.",
+      "metadata": {
+        "case_index": 31,
+        "prompt_id": "p044",
+        "domain": "economics",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p013",
+      "family": "science",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nLightning is seen before thunder is heard, even though both come from the same event. Write a concise social-media explanation of the delay and what determines how long it lasts.",
+      "metadata": {
+        "case_index": 32,
+        "prompt_id": "p013",
+        "domain": "science",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p092",
+      "family": "misconceptions",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nGoldfish are often said to have a memory of only a few seconds. Write a concise post explaining what research and ordinary training observations tell us about that claim.",
+      "metadata": {
+        "case_index": 33,
+        "prompt_id": "p092",
+        "domain": "misconceptions",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p054",
+      "family": "geography",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nA monsoon is often described simply as 'a season of heavy rain.' Write a short post explaining what a monsoon actually is and why wind patterns are central to the concept.",
+      "metadata": {
+        "case_index": 34,
+        "prompt_id": "p054",
+        "domain": "geography",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p003",
+      "family": "history",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nImagine someone sees November 9, 1989 on an anniversary calendar and asks why it matters. Write a brief post that identifies the event, gives enough context to understand it, and explains its historical significance.",
+      "metadata": {
+        "case_index": 35,
+        "prompt_id": "p003",
+        "domain": "history",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p027",
+      "family": "biology_medicine",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhy don't antibiotics cure ordinary viral infections such as most colds? Write a short explanatory post that distinguishes what antibiotics target from what viruses are.",
+      "metadata": {
+        "case_index": 36,
+        "prompt_id": "p027",
+        "domain": "biology_medicine",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p073",
+      "family": "language",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nSome languages assign grammatical gender to ordinary objects. Write a concise post explaining what grammatical gender is and why it should not be confused with believing that objects literally have biological sex.",
+      "metadata": {
+        "case_index": 37,
+        "prompt_id": "p073",
+        "domain": "language",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p035",
+      "family": "technology",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nYour browser may show an old version of a website even after the site has been updated. Explain the role of caching in a short post and why refreshing can sometimes fix the mismatch.",
+      "metadata": {
+        "case_index": 38,
+        "prompt_id": "p035",
+        "domain": "technology",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p065",
+      "family": "food_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nKosher and halal dietary rules are sometimes treated as interchangeable. Write a careful short post explaining a few important similarities and differences without trying to summarize either religious tradition completely.",
+      "metadata": {
+        "case_index": 39,
+        "prompt_id": "p065",
+        "domain": "food_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p085",
+      "family": "arts_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nJazz improvisation does not mean musicians are simply making random notes up on the spot. Write a short post explaining how improvisation works within harmony, rhythm, style, and shared musical conventions.",
+      "metadata": {
+        "case_index": 40,
+        "prompt_id": "p085",
+        "domain": "arts_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p043",
+      "family": "economics",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nA currency can strengthen against another currency while people in that country do not suddenly become proportionally richer. Write a short post distinguishing exchange rates from purchasing power and living standards.",
+      "metadata": {
+        "case_index": 41,
+        "prompt_id": "p043",
+        "domain": "economics",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p014",
+      "family": "science",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nPeople often say the Moon has a 'dark side.' Write a short post explaining what is misleading about that phrase and why we keep seeing nearly the same lunar face from Earth.",
+      "metadata": {
+        "case_index": 42,
+        "prompt_id": "p014",
+        "domain": "science",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p093",
+      "family": "misconceptions",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nMany parents have heard that sugar reliably makes children hyperactive. Write a careful short post explaining why the evidence is much weaker than the popular belief suggests.",
+      "metadata": {
+        "case_index": 43,
+        "prompt_id": "p093",
+        "domain": "misconceptions",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p051",
+      "family": "geography",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nPeople often use 'Holland' and 'the Netherlands' as if they were exactly the same thing. Write a short post explaining the geographical difference without making the terminology sound more complicated than it is.",
+      "metadata": {
+        "case_index": 44,
+        "prompt_id": "p051",
+        "domain": "geography",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p006",
+      "family": "history",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhy would an aviation-history page post about December 17, 1903? Explain the event associated with that date and what made it different from earlier attempts at flight.",
+      "metadata": {
+        "case_index": 45,
+        "prompt_id": "p006",
+        "domain": "history",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p026",
+      "family": "biology_medicine",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nSome people sneeze when they suddenly step into bright sunlight. Explain this phenomenon in a short post and make clear that it is a real inherited reflex rather than an allergy to light.",
+      "metadata": {
+        "case_index": 46,
+        "prompt_id": "p026",
+        "domain": "biology_medicine",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p076",
+      "family": "language",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nMany Hebrew words are built around consonantal roots. Write a short social-media explanation of how a root can connect families of related words without implying that every word fits the pattern perfectly.",
+      "metadata": {
+        "case_index": 47,
+        "prompt_id": "p076",
+        "domain": "language",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p031",
+      "family": "technology",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nDeleting a file does not always mean its data vanishes from a drive at that instant. Write a short post explaining what deletion usually changes and why recovery can sometimes still be possible.",
+      "metadata": {
+        "case_index": 48,
+        "prompt_id": "p031",
+        "domain": "technology",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p069",
+      "family": "food_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nIndian food is sometimes described as if there were one national cuisine. Write a short post explaining why regional variation matters, using a few concrete examples of ingredients or cooking traditions.",
+      "metadata": {
+        "case_index": 49,
+        "prompt_id": "p069",
+        "domain": "food_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p083",
+      "family": "arts_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nThe Mona Lisa was famous before it was stolen in 1911, but the theft changed its public profile dramatically. Write a short post explaining why the painting became such a global icon without reducing the answer to one cause.",
+      "metadata": {
+        "case_index": 50,
+        "prompt_id": "p083",
+        "domain": "arts_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p047",
+      "family": "economics",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nGDP per capita is often used to compare countries, but it is not the same thing as the income of an average resident. Write a short post explaining the difference and why the distinction matters.",
+      "metadata": {
+        "case_index": 51,
+        "prompt_id": "p047",
+        "domain": "economics",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p011",
+      "family": "science",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nSometimes you can smell rain before the rain reaches you. Write a short post explaining where that smell comes from and how it can arrive before the first drops.",
+      "metadata": {
+        "case_index": 52,
+        "prompt_id": "p011",
+        "domain": "science",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p091",
+      "family": "misconceptions",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nPeople say lightning never strikes the same place twice. Write a short post explaining why the saying is physically wrong and why tall structures can be struck repeatedly.",
+      "metadata": {
+        "case_index": 53,
+        "prompt_id": "p091",
+        "domain": "misconceptions",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p055",
+      "family": "geography",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nNorway's coastline contains thousands of fjords. Explain in a short post how glaciers created these landscapes and why the valleys later filled with seawater.",
+      "metadata": {
+        "case_index": 54,
+        "prompt_id": "p055",
+        "domain": "geography",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p008",
+      "family": "history",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nJuly 20, 1969 is instantly recognizable to many people but not everyone knows the details. Write a short post explaining what occurred and why it became a global cultural milestone.",
+      "metadata": {
+        "case_index": 55,
+        "prompt_id": "p008",
+        "domain": "history",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p028",
+      "family": "biology_medicine",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nHealing cuts often become itchy. Write a short post explaining several biological reasons this can happen as tissue repairs itself.",
+      "metadata": {
+        "case_index": 56,
+        "prompt_id": "p028",
+        "domain": "biology_medicine",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p080",
+      "family": "language",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nLanguages constantly borrow words from one another. Write a short post explaining why borrowed vocabulary does not mean a language is becoming 'less authentic,' and give one familiar example.",
+      "metadata": {
+        "case_index": 57,
+        "prompt_id": "p080",
+        "domain": "language",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p039",
+      "family": "technology",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nA phone saying '20% battery remaining' is not the same as directly measuring that exactly one fifth of the battery's energy is left. Explain in a short post why battery percentage is an estimate.",
+      "metadata": {
+        "case_index": 58,
+        "prompt_id": "p039",
+        "domain": "technology",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p063",
+      "family": "food_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nA sourdough starter can stay alive for years if it is maintained. Write a short post explaining what organisms live in it and why regular feeding matters.",
+      "metadata": {
+        "case_index": 59,
+        "prompt_id": "p063",
+        "domain": "food_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p090",
+      "family": "arts_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nA book can become culturally important even if it was not an immediate bestseller. Write a short post using one well-known example to explain how reputation can grow through later readers, critics, schools, adaptations, or historical events.",
+      "metadata": {
+        "case_index": 60,
+        "prompt_id": "p090",
+        "domain": "arts_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p050",
+      "family": "economics",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nA very cheap airline ticket can end up costing more than a higher advertised fare once baggage, seat selection, and other extras are added. Use this example to explain why headline price and total economic cost are not always the same thing.",
+      "metadata": {
+        "case_index": 61,
+        "prompt_id": "p050",
+        "domain": "economics",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p020",
+      "family": "science",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nIf the Sun disappeared instantaneously in a thought experiment, Earth would not notice immediately. Write a short post explaining the delay and why the change in gravity would not arrive sooner than the change in light.",
+      "metadata": {
+        "case_index": 62,
+        "prompt_id": "p020",
+        "domain": "science",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p094",
+      "family": "misconceptions",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nDoes cracking your knuckles cause arthritis? Write a short post separating what is known about the popping sound from what evidence says about the arthritis claim.",
+      "metadata": {
+        "case_index": 63,
+        "prompt_id": "p094",
+        "domain": "misconceptions",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p059",
+      "family": "geography",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhy are time zones politically irregular instead of forming 24 perfectly straight vertical strips around Earth? Explain in a short post using borders and practical coordination as part of the answer.",
+      "metadata": {
+        "case_index": 64,
+        "prompt_id": "p059",
+        "domain": "geography",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p007",
+      "family": "history",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWrite a short anniversary post about April 26, 1986. Describe the major event connected with the date and explain why its consequences extended far beyond the immediate location.",
+      "metadata": {
+        "case_index": 65,
+        "prompt_id": "p007",
+        "domain": "history",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p024",
+      "family": "biology_medicine",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhat actually causes hiccups? Write a concise post explaining the basic reflex involved and why the characteristic sound happens.",
+      "metadata": {
+        "case_index": 66,
+        "prompt_id": "p024",
+        "domain": "biology_medicine",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p074",
+      "family": "language",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nFalse friends can make two related languages look deceptively easy to understand. Write a short post explaining the idea with a clear example from any language pair.",
+      "metadata": {
+        "case_index": 67,
+        "prompt_id": "p074",
+        "domain": "language",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p038",
+      "family": "technology",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nGood websites should not need to store your actual password in readable form. Write a short post explaining password hashing and why a stolen password database can still be dangerous.",
+      "metadata": {
+        "case_index": 68,
+        "prompt_id": "p038",
+        "domain": "technology",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p064",
+      "family": "food_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nKimchi, sauerkraut, and yogurt are very different foods, yet fermentation is central to all of them. Write a short post explaining what fermentation is and what the microbes are doing.",
+      "metadata": {
+        "case_index": 69,
+        "prompt_id": "p064",
+        "domain": "food_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p089",
+      "family": "arts_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nAncient Greek theatre used masks, but not merely as decoration. Write a short post explaining some practical and dramatic functions masks served in large outdoor performances.",
+      "metadata": {
+        "case_index": 70,
+        "prompt_id": "p089",
+        "domain": "arts_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p041",
+      "family": "economics",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nInflation can fall while supermarket prices continue to rise. Write a short post explaining how both statements can be true, using a simple everyday example.",
+      "metadata": {
+        "case_index": 71,
+        "prompt_id": "p041",
+        "domain": "economics",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p019",
+      "family": "science",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nMicrowave ovens often leave some parts of food hotter than others. Explain in a short post why uneven heating happens and why the rotating plate helps.",
+      "metadata": {
+        "case_index": 72,
+        "prompt_id": "p019",
+        "domain": "science",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p100",
+      "family": "misconceptions",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nA popular claim says toilets always swirl in opposite directions in the northern and southern hemispheres. Write a short post explaining why household toilets are dominated by their design and initial water motion rather than the Coriolis effect.",
+      "metadata": {
+        "case_index": 73,
+        "prompt_id": "p100",
+        "domain": "misconceptions",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p058",
+      "family": "geography",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nTokyo and Seoul are both huge East Asian metropolitan areas, but their physical geography and urban form are not identical. Write a short comparison focusing on two or three concrete differences rather than stereotypes.",
+      "metadata": {
+        "case_index": 74,
+        "prompt_id": "p058",
+        "domain": "geography",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p010",
+      "family": "history",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nA museum account is preparing a post for July 14. Explain the major event associated with July 14, 1789 and why it became a lasting political symbol rather than just another episode of unrest.",
+      "metadata": {
+        "case_index": 75,
+        "prompt_id": "p010",
+        "domain": "history",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p022",
+      "family": "biology_medicine",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nMuscles can hurt more the day after unfamiliar exercise than immediately after it. Write a brief post explaining delayed-onset muscle soreness and correcting the common idea that it is simply 'lactic acid left in the muscles.'",
+      "metadata": {
+        "case_index": 76,
+        "prompt_id": "p022",
+        "domain": "biology_medicine",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p078",
+      "family": "language",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nTurkish can build long words by adding a sequence of suffixes. Write a concise post explaining agglutination and why one Turkish word can express information that English might need several words to convey.",
+      "metadata": {
+        "case_index": 77,
+        "prompt_id": "p078",
+        "domain": "language",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p036",
+      "family": "technology",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nA phone can estimate where you are without sending a signal to GPS satellites. Write a short post explaining, at a high level, how satellite positioning works and why the phone is mainly listening rather than 'asking the satellite where it is.'",
+      "metadata": {
+        "case_index": 78,
+        "prompt_id": "p036",
+        "domain": "technology",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p062",
+      "family": "food_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nEspresso and filter coffee can start with the same beans but taste and feel very different. Write a concise post explaining the main differences in brewing method, concentration, and serving style.",
+      "metadata": {
+        "case_index": 79,
+        "prompt_id": "p062",
+        "domain": "food_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p088",
+      "family": "arts_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nFilm restoration can involve much more than making an old movie sharper. Write a short post explaining what restorers may need to repair, reconstruct, or decide when working from damaged historical material.",
+      "metadata": {
+        "case_index": 80,
+        "prompt_id": "p088",
+        "domain": "arts_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p048",
+      "family": "economics",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nFalling prices may sound universally good, yet sustained deflation can create problems for an economy. Explain why in a brief social-media post without making it sound like cheaper goods are inherently bad.",
+      "metadata": {
+        "case_index": 81,
+        "prompt_id": "p048",
+        "domain": "economics",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p017",
+      "family": "science",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nA pressure cooker can prepare food faster even though the heater itself is not necessarily hotter. Explain why in a compact post for curious non-specialists.",
+      "metadata": {
+        "case_index": 82,
+        "prompt_id": "p017",
+        "domain": "science",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p097",
+      "family": "misconceptions",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nThe Great Wall of China is often described as visible from the Moon with the naked eye. Write a short post explaining why that claim is misleading and what astronauts actually report about seeing human-made structures from space.",
+      "metadata": {
+        "case_index": 83,
+        "prompt_id": "p097",
+        "domain": "misconceptions",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p057",
+      "family": "geography",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nThe surface of the Dead Sea is far below global sea level. Write a short post explaining how a lake can sit below sea level without the world's oceans simply flowing into it.",
+      "metadata": {
+        "case_index": 84,
+        "prompt_id": "p057",
+        "domain": "geography",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p009",
+      "family": "history",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhat made October 24, 1929 historically significant? Explain the day in a social-media post that distinguishes the event itself from the larger economic crisis that followed.",
+      "metadata": {
+        "case_index": 85,
+        "prompt_id": "p009",
+        "domain": "history",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p023",
+      "family": "biology_medicine",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nMany people notice that one nostril seems more blocked than the other and that the sides can switch over time. Explain the normal nasal cycle in a short post without turning it into medical advice.",
+      "metadata": {
+        "case_index": 86,
+        "prompt_id": "p023",
+        "domain": "biology_medicine",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p075",
+      "family": "language",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nArabic writing often leaves short vowels unwritten in everyday text. Explain in a short post how fluent readers can still understand words and when vowel marks are more likely to appear.",
+      "metadata": {
+        "case_index": 87,
+        "prompt_id": "p075",
+        "domain": "language",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p032",
+      "family": "technology",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nPrivate or incognito browser mode is often mistaken for online anonymity. Write a concise post explaining what it actually hides, what it does not hide, and who may still be able to see network activity.",
+      "metadata": {
+        "case_index": 88,
+        "prompt_id": "p032",
+        "domain": "technology",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p061",
+      "family": "food_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nJapanese and Korean cuisines are sometimes grouped together simply because both come from East Asia. Write a short post comparing their typical flavor profiles, staple ingredients, and dining traditions without reducing either cuisine to stereotypes.",
+      "metadata": {
+        "case_index": 89,
+        "prompt_id": "p061",
+        "domain": "food_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p087",
+      "family": "arts_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nA work entering the public domain does not mean nobody created it or that every later version is automatically free to copy. Write a short post explaining the basic distinction between an original work and newer adaptations or recordings.",
+      "metadata": {
+        "case_index": 90,
+        "prompt_id": "p087",
+        "domain": "arts_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p049",
+      "family": "economics",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nSomeone receives a 5% pay rise during a year when prices rise by 7%. Write a short post explaining the difference between nominal pay and real purchasing power.",
+      "metadata": {
+        "case_index": 91,
+        "prompt_id": "p049",
+        "domain": "economics",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p016",
+      "family": "science",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWrite a short post correcting the idea that Earth's seasons are caused mainly by being closer to or farther from the Sun. Explain the real mechanism without using equations.",
+      "metadata": {
+        "case_index": 92,
+        "prompt_id": "p016",
+        "domain": "science",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p098",
+      "family": "misconceptions",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nSwallowed chewing gum is sometimes said to stay in the stomach for seven years. Write a concise post explaining what normally happens to gum after it is swallowed.",
+      "metadata": {
+        "case_index": 93,
+        "prompt_id": "p098",
+        "domain": "misconceptions",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p053",
+      "family": "geography",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nChile is unusually long and narrow. Write a short post explaining the major geographical forces and boundaries that helped produce that shape.",
+      "metadata": {
+        "case_index": 94,
+        "prompt_id": "p053",
+        "domain": "geography",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p005",
+      "family": "history",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nAugust 15, 1947 is a major date in modern history. Explain what happened in a compact social-media post and mention one consequence that helps a reader understand why the date still matters.",
+      "metadata": {
+        "case_index": 95,
+        "prompt_id": "p005",
+        "domain": "history",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p030",
+      "family": "biology_medicine",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhy do humans still get goosebumps even though they have relatively little body hair? Write a brief evolutionary explanation suitable for a general social-media audience.",
+      "metadata": {
+        "case_index": 96,
+        "prompt_id": "p030",
+        "domain": "biology_medicine",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p079",
+      "family": "language",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nSign language is not one universal language used everywhere. Write a short post explaining why different sign languages exist and why American Sign Language and British Sign Language are not simply signed versions of the same spoken language.",
+      "metadata": {
+        "case_index": 97,
+        "prompt_id": "p079",
+        "domain": "language",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p037",
+      "family": "technology",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nWhat does end-to-end encryption actually mean in a messaging app? Write a compact explanation of who should be able to read the message and what the phrase does not automatically guarantee.",
+      "metadata": {
+        "case_index": 98,
+        "prompt_id": "p037",
+        "domain": "technology",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    },
+    {
+      "question_id": "p067",
+      "family": "food_culture",
+      "task": "Write a short social-network post suitable for Facebook or a similar platform. The post should be understandable to a general audience and should read like something a person might genuinely publish, not like an encyclopedia entry or formal essay. Use approximately 5-8 sentences.\n\nTOPIC:\nPeople often describe umami as a mysterious 'fifth taste.' Write a concise post explaining what the term refers to, which compounds are involved, and where people commonly encounter it in food.",
+      "metadata": {
+        "case_index": 99,
+        "prompt_id": "p067",
+        "domain": "food_culture",
+        "language": "en",
+        "subset": "primary_english",
+        "bank_version": "prompts-v3"
+      }
+    }
+  ]
+}

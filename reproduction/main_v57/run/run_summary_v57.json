@@ -1,0 +1,72 @@
+{
+  "code_version": "5.7",
+  "prompt_bank_version": "prompts-v3",
+  "prompt_bank_sha256": "be451428045e8b9fc2460d440ea2c962f3338237e87c3fa7dd6fff490569b5bf",
+  "english_adaptive_final_n": 40,
+  "english_primary_ids": [
+    "p086",
+    "p042",
+    "p015",
+    "p095",
+    "p052",
+    "p002",
+    "p021",
+    "p072",
+    "p034",
+    "p066",
+    "p082",
+    "p045",
+    "p012",
+    "p096",
+    "p060",
+    "p004",
+    "p025",
+    "p077",
+    "p033",
+    "p070",
+    "p084",
+    "p046",
+    "p018",
+    "p099",
+    "p056",
+    "p001",
+    "p029",
+    "p071",
+    "p040",
+    "p068",
+    "p081",
+    "p044",
+    "p013",
+    "p092",
+    "p054",
+    "p003",
+    "p027",
+    "p073",
+    "p035",
+    "p065"
+  ],
+  "russian_validation_ids": [
+    "ru08",
+    "ru10",
+    "ru07",
+    "ru04",
+    "ru05",
+    "ru06",
+    "ru02",
+    "ru01",
+    "ru03",
+    "ru09"
+  ],
+  "russian_validation_models": [
+    "gpt-5.5",
+    "gemini-3.1-pro-preview"
+  ],
+  "english_extension_models": [
+    "gpt-5.5",
+    "gemini-3.1-pro-preview"
+  ],
+  "sentence_count_contract": [
+    5,
+    8
+  ]
+}

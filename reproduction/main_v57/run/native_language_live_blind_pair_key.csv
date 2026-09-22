@@ -1,0 +1,11 @@
+pair_id,model_id,qid_A,sentence_index_A,live_score_A,qid_B,sentence_index_B,live_score_B,live_score_gap,model_predicts_more_AI
+8d67651e1f23ae37,gpt-5.5,ru01,2,6.0,ru04,2,35.0,29.0,B
+436930f9f21db774,gpt-5.5,ru05,4,34.0,ru01,0,8.0,26.0,A
+98a0620abe2b56b5,gpt-5.5,ru01,1,10.0,ru09,2,32.0,22.0,B
+758697199b7a018d,gpt-5.5,ru03,6,10.0,ru04,4,31.0,21.0,B
+56ba0aabf4ffc46b,gpt-5.5,ru10,6,10.0,ru05,3,31.0,21.0,B
+6cae3a5a33299f0f,gemini-3.1-pro-preview,ru01,4,40.0,ru05,6,0.0,40.0,A
+f78fad32934536da,gemini-3.1-pro-preview,ru01,6,5.0,ru02,3,35.0,30.0,B
+f6440acbf5a29514,gemini-3.1-pro-preview,ru02,6,5.0,ru03,2,30.0,25.0,B
+b2fba66d6e0234ae,gemini-3.1-pro-preview,ru08,5,30.0,ru03,1,5.0,25.0,A
+a6416a6687b63cbd,gemini-3.1-pro-preview,ru03,6,5.0,ru09,6,30.0,25.0,B

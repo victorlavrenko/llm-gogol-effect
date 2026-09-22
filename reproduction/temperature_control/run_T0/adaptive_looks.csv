@@ -1,0 +1,2 @@
+look_cases,look_index,alpha_boundary,primary_endpoint,primary_n,primary_effect,primary_p,state_n,state_effect,state_p,modeldep_n,modeldep_effect,modeldep_p,decision,created_at
+10,1,0.05,live-post,10,0.5182926829268293,0.16297899123328086,10,25.261904761904763,0.0107421875,10,20.095238095238095,0.0107421875,hard_limit,2026-09-17 10:57:12

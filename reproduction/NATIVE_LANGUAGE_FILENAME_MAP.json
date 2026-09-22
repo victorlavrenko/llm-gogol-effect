@@ -1,0 +1,45 @@
+{
+  "renamed_auxiliary_files": [
+    {
+      "original_frozen_name": "russian_correction_blind_pair_key_all.csv",
+      "reviewer_name": "native_language_correction_blind_pair_key_all.csv",
+      "sha256_unchanged_bytes": "4dbebde8c1777fa3f7817129a24317c230c8f481d83db845812292fdb4d7ff31"
+    },
+    {
+      "original_frozen_name": "russian_correction_blind_pair_key_small.csv",
+      "reviewer_name": "native_language_correction_blind_pair_key_small.csv",
+      "sha256_unchanged_bytes": "c36f435f962f9ec95b4a332b826a03f50e2f8570820a41c8c7c9a21f7369ef12"
+    },
+    {
+      "original_frozen_name": "russian_correction_blind_pairs_all.csv",
+      "reviewer_name": "native_language_correction_blind_pairs_all.csv",
+      "sha256_unchanged_bytes": "98dee7f48990e61ce923024a61fc8b40d40b311612e896d29f19a2e1cc9d9466"
+    },
+    {
+      "original_frozen_name": "russian_correction_blind_pairs_small.csv",
+      "reviewer_name": "native_language_correction_blind_pairs_small.csv",
+      "sha256_unchanged_bytes": "6989754dbc4656efd0b94d0f40a31cfaabe416b6d7c5dee6c9cbcbc47ff11f36"
+    },
+    {
+      "original_frozen_name": "russian_human_validation_manifest.json",
+      "reviewer_name": "native_language_human_validation_manifest.json",
+      "sha256_unchanged_bytes": "6a55ae31ce8a9c7b99a41fd0979617c8dc2991d7508a54b154664497bda5da16"
+    },
+    {
+      "original_frozen_name": "russian_live_blind_pair_key.csv",
+      "reviewer_name": "native_language_live_blind_pair_key.csv",
+      "sha256_unchanged_bytes": "125a31ae9a1bd51e136609a985181c3ef18600091722d146004ab30827d358a6"
+    },
+    {
+      "original_frozen_name": "russian_live_blind_pairs.csv",
+      "reviewer_name": "native_language_live_blind_pairs.csv",
+      "sha256_unchanged_bytes": "1497b98399ab1344486009f62e809e56c61abf57ee3b22b722acb14bc5802293"
+    },
+    {
+      "original_frozen_name": "russian_validation_status.csv",
+      "reviewer_name": "native_language_validation_status.csv",
+      "sha256_unchanged_bytes": "96cc30154245e79f8aa866f35b77a8097be41fb087d413e9ef2660a2994ed5c2"
+    }
+  ],
+  "note": "Only filenames were changed in the reviewer package; file bytes were not altered. Frozen internal metadata and prompt text retain original provenance labels."
+}

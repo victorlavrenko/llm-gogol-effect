@@ -1,0 +1,7 @@
+model,model_id,n_prompts,mean_replay_minus_live,mean_post_minus_replay,p_ikea_one_sided,p_gogol_one_sided,fresh_extension_seq_adjusted_p,classification,design
+GPT-5.5,gpt-5.5,40,-3.1029761904761903,6.9142857142857155,0.9994980224445219,7.761883941769876e-14,nan,Gogol,fixed 40-prompt English decomposition
+Gemini 3.1 Pro,gemini-3.1-pro-preview,40,2.7720238095238097,20.060714285714287,0.010166389317709858,5.842288249165297e-11,nan,IKEA-like + Gogol,fixed 40-prompt English decomposition
+GPT-OSS-120B,gpt-oss-120b,8,-6.479166666666667,10.0,nan,0.0009590282996157332,0.021130121103418633,Gogol,adaptive breadth extension; cumulative p is exploratory/descriptive; fresh-extension sequential p is confirmatory support
+DeepSeek V4 Flash,deepseek-v4-flash,12,-8.403273809523808,3.1756944444444444,nan,0.028371490951744308,0.040212417328920155,Gogol,adaptive breadth extension; cumulative p is exploratory/descriptive; fresh-extension sequential p is confirmatory support
+Llama 3.3 70B,llama-3.3-70b-instruct,24,-3.8125000000000004,0.23958333333333423,nan,0.4550761252087914,1.0,no positive Gogol evidence at available sample,adaptive breadth extension; cumulative p is exploratory/descriptive; fresh-extension sequential p is confirmatory support
+Claude Opus 5,claude-opus-5,24,-3.0133928571428577,-2.048363095238095,nan,0.9720993262154103,1.0,no positive Gogol evidence,adaptive breadth extension; cumulative p is exploratory/descriptive; fresh-extension sequential p is confirmatory support

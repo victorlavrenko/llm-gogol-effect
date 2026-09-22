@@ -1,0 +1,39 @@
+[
+  {
+    "adaptive_version": "fixed-looks-bonferroni-promptbank-v2",
+    "alpha_boundary": 0.05,
+    "cases_attempted": 10,
+    "confirmatory_scope": "internal self-assessment consistency + state effects",
+    "decision": "hard_limit",
+    "look_index": 1,
+    "model_dependence": {
+      "contrast": "(gemini-3.1-pro-preview post-live) - (gpt-5.5 post-live)",
+      "mean_contrast": 20.095238095238095,
+      "median_contrast": 19.67857142857143,
+      "minimum_meaningful_difference": 5.0,
+      "n_non_ties": 10,
+      "p_sign_one_sided": 0.0107421875,
+      "passed": true
+    },
+    "primary": {
+      "endpoint": "live-post",
+      "model": "gpt-5.5",
+      "n_questions": 10,
+      "p_one_sided": 0.16297899123328086,
+      "passed": false,
+      "ratings_available": null,
+      "ratings_required": null,
+      "rho0": 0.2,
+      "spearman": 0.5182926829268293
+    },
+    "state_distortion": {
+      "mean_post_minus_live": 25.261904761904763,
+      "median_post_minus_live": 23.095238095238095,
+      "minimum_meaningful_shift": 5.0,
+      "model": "gemini-3.1-pro-preview",
+      "n_non_ties": 10,
+      "p_sign_one_sided": 0.0107421875,
+      "passed": true
+    }
+  }
+]

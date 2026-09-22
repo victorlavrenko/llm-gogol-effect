@@ -1,0 +1,129 @@
+{
+  "already_full_replay_models": [
+    "gpt-5.5",
+    "gemini-3.1-pro-preview"
+  ],
+  "default_stop_rule": "cumulative",
+  "design": "retain existing 4-prompt pilot, then +4 per unresolved model",
+  "extension_models": [
+    "claude-opus-5",
+    "deepseek-v4-flash",
+    "gpt-oss-120b",
+    "llama-3.3-70b-instruct"
+  ],
+  "model_specific_new_prompt_orders": {
+    "claude-opus-5": [
+      "p027",
+      "p021",
+      "p086",
+      "p013",
+      "p015",
+      "p054",
+      "p029",
+      "p045",
+      "p012",
+      "p033",
+      "p068",
+      "p034",
+      "p025",
+      "p081",
+      "p077",
+      "p096",
+      "p066",
+      "p035",
+      "p040",
+      "p056"
+    ],
+    "deepseek-v4-flash": [
+      "p046",
+      "p054",
+      "p056",
+      "p034",
+      "p021",
+      "p018",
+      "p066",
+      "p095",
+      "p096",
+      "p027",
+      "p052",
+      "p029",
+      "p035",
+      "p040",
+      "p092",
+      "p068",
+      "p003",
+      "p071",
+      "p065",
+      "p004"
+    ],
+    "gpt-oss-120b": [
+      "p066",
+      "p021",
+      "p015",
+      "p033",
+      "p082",
+      "p034",
+      "p095",
+      "p071",
+      "p027",
+      "p054",
+      "p072",
+      "p084",
+      "p045",
+      "p029",
+      "p025",
+      "p012",
+      "p086",
+      "p096",
+      "p077",
+      "p073"
+    ],
+    "llama-3.3-70b-instruct": [
+      "p066",
+      "p021",
+      "p015",
+      "p033",
+      "p082",
+      "p034",
+      "p095",
+      "p071",
+      "p027",
+      "p054",
+      "p072",
+      "p084",
+      "p045",
+      "p029",
+      "p025",
+      "p012",
+      "p086",
+      "p096",
+      "p077",
+      "p073"
+    ]
+  },
+  "new_sample_looks": [
+    4,
+    8,
+    12,
+    16,
+    20
+  ],
+  "notes": {
+    "cumulative_raw_p": "uses pilot+new; exploratory because pilot was inspected before extension",
+    "extension_seq_adjusted_p": "new-only one-sided t p multiplied by 5 future looks"
+  },
+  "pilot_ids": [
+    "p001",
+    "p042",
+    "p044",
+    "p070"
+  ],
+  "seed": 20260922,
+  "total_looks": [
+    8,
+    12,
+    16,
+    20,
+    24
+  ]
+}

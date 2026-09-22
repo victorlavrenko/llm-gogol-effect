@@ -1,0 +1,60 @@
+{
+  "prompt_version": "ai-likeness-single-objective-v5.2",
+  "replay_version": "question-level-full-sequential-replay-v1",
+  "replay_question_ids": [
+    "p006",
+    "p014",
+    "p026",
+    "p031",
+    "p043",
+    "p051",
+    "p069",
+    "p076",
+    "p085",
+    "p093"
+  ],
+  "models": [
+    {
+      "model_id": "gemini-3.1-pro-preview",
+      "live_post_n": 64,
+      "live_post_bias_first_minus_second": -25.390625,
+      "live_post_mae": 26.015625,
+      "live_post_pearson": 0.28913450543575275,
+      "live_post_spearman": 0.31596972835389614,
+      "live_replay_n": 64,
+      "live_replay_bias_first_minus_second": -0.15625,
+      "live_replay_mae": 5.3125,
+      "live_replay_pearson": 0.602279655658586,
+      "live_replay_spearman": 0.6482158528254043,
+      "post_replay_n": 64,
+      "post_replay_bias_first_minus_second": 25.234375,
+      "post_replay_mae": 25.296875,
+      "post_replay_pearson": 0.46717338772266914,
+      "post_replay_spearman": 0.5567686040291436
+    },
+    {
+      "model_id": "gpt-5.5",
+      "live_post_n": 60,
+      "live_post_bias_first_minus_second": -5.166666666666667,
+      "live_post_mae": 6.1,
+      "live_post_pearson": 0.5776204684178677,
+      "live_post_spearman": 0.6133075258613179,
+      "live_replay_n": 60,
+      "live_replay_bias_first_minus_second": 1.9666666666666666,
+      "live_replay_mae": 3.6333333333333333,
+      "live_replay_pearson": 0.47780151054396114,
+      "live_replay_spearman": 0.43650221615492585,
+      "post_replay_n": 60,
+      "post_replay_bias_first_minus_second": 7.133333333333334,
+      "post_replay_mae": 7.833333333333333,
+      "post_replay_pearson": 0.47587567527911473,
+      "post_replay_spearman": 0.5053826340776916
+    }
+  ],
+  "cell_status_counts": {
+    "live_complete": 20,
+    "post_complete": 20
+  },
+  "score_rows": 372,
+  "paired_live_rows": 124
+}

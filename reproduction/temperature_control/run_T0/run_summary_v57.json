@@ -1,0 +1,28 @@
+{
+  "code_version": "5.7",
+  "prompt_bank_version": "prompts-v3",
+  "prompt_bank_sha256": "3efdd073e3faf97d821de1f35ad52cc1f1acb04890a22bf5ea98e919754426aa",
+  "english_adaptive_final_n": 10,
+  "english_primary_ids": [
+    "p076",
+    "p006",
+    "p069",
+    "p085",
+    "p026",
+    "p093",
+    "p014",
+    "p051",
+    "p043",
+    "p031"
+  ],
+  "russian_validation_ids": [],
+  "russian_validation_models": [],
+  "english_extension_models": [
+    "gpt-5.5",
+    "gemini-3.1-pro-preview"
+  ],
+  "sentence_count_contract": [
+    5,
+    8
+  ]
+}

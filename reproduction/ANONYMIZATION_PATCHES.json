@@ -1,0 +1,28 @@
+{
+  "patches": [
+    {
+      "runner": "main_v57/self_confidence_v5_7_promptbank.py",
+      "run_manifest": "main_v57/run/manifest.json",
+      "frozen_manifest_runner_sha256": "d269f683255692e51aaf6266b4e886032e2333c98e5db8852a0b58fbba5b488a",
+      "reviewer_runner_sha256": "55b02beb89980768711dc06d5ee7e0ff619ce6d51136a2bba92fd2d30c93c6fb",
+      "anonymization": "Only the non-semantic OpenRouter HTTP-Referer URL was replaced by an anonymous placeholder. No prompts, model routes, decoding parameters, parsing, execution, scoring, or analysis logic changed.",
+      "replacement_count": 2
+    },
+    {
+      "runner": "robustness16/ai_slop_robustness_v1.py",
+      "run_manifest": "robustness16/run/manifest.json",
+      "frozen_manifest_runner_sha256": "f1826bd072948c550610d3ee8761ca60cbf8c30182db7cf8742ce2723dac506b",
+      "reviewer_runner_sha256": "f760f259abfd62ccda32e288344b2af1e4faf4e16ccbff317102f0f90bc6bcdb",
+      "anonymization": "Only the non-semantic OpenRouter HTTP-Referer URL was replaced by an anonymous placeholder. No prompts, model routes, decoding parameters, parsing, execution, scoring, or analysis logic changed. Reviewer-copy analyze-only mode was also made non-mutating so it cannot overwrite the frozen manifest while recomputing derived tables.",
+      "replacement_count": 1
+    },
+    {
+      "runner": "robustness24/ai_slop_robustness_extension_v1.py",
+      "run_manifest": "robustness24/run/manifest.json",
+      "frozen_manifest_runner_sha256": "2a5d7c2ba6bbd7c0df92f46e16545d004e77ef1d506e95ab86a5c271e9e00386",
+      "reviewer_runner_sha256": "11f9e26efe4a9768c307f6955f67b4d1bd55fcefce4bc86206f5742cb6060801",
+      "anonymization": "Only the non-semantic OpenRouter HTTP-Referer URL was replaced by an anonymous placeholder. No prompts, model routes, decoding parameters, parsing, execution, scoring, or analysis logic changed. Reviewer-copy analyze-only mode was also made non-mutating so it cannot overwrite the frozen manifest while recomputing derived tables.",
+      "replacement_count": 1
+    }
+  ]
+}

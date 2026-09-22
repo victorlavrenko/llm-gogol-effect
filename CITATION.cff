@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the accompanying paper."
+title: "The Gogol Effect in LLMs: Post-Completion Self-Devaluation"
+type: software
+authors:
+  - family-names: Lavrenko
+    given-names: Victor
+    email: victor@peacetech.vc
+    affiliation: "PeaceTech VC, Israel"
+repository-code: "https://github.com/victorlavrenko/llm-gogol-effect"
+url: "https://github.com/victorlavrenko/llm-gogol-effect"
+version: "0.1.0"
+date-released: 2026-09-22
