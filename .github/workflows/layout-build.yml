@@ -1,0 +1,31 @@
+name: layout-build
+
+on:
+  push:
+    branches: [layout-polish]
+    paths:
+      - 'paper/**'
+      - '.github/workflows/layout-build.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate polished TeX
+        run: python paper/make_layout.py
+      - name: Compile paper
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main_layout.tex
+          working_directory: paper
+      - name: Upload rendered paper
+        uses: actions/upload-artifact@v4
+        with:
+          name: gogol-layout
+          path: |
+            paper/main_layout.pdf
+            paper/main_layout.tex
+            paper/main_layout.log
+          if-no-files-found: error
