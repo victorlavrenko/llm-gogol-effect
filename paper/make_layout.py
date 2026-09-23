@@ -7,7 +7,10 @@ s = src_path.read_text(encoding='utf-8')
 
 # Typography and page-breaking policy: full-height columns, no 1- or 2-line
 # paragraph fragments at column/page breaks, and enough room under headings.
-s = s.replace(r'\usepackage{float}' + '\n', r'\usepackage{float}' + '\n' + r'\usepackage{needspace}' + '\n')
+s = s.replace(
+    r'\usepackage{float}' + '\n',
+    r'\usepackage{float}' + '\n' + r'\usepackage{needspace}' + '\n' + r'\usepackage{flushend}' + '\n'
+)
 s = s.replace(r'\raggedbottom', r'''\flushbottom
 \emergencystretch=1.2em
 \tolerance=1200
@@ -48,10 +51,10 @@ replacement = r'''\begin{document}
 \vspace{0.4em}'''
 s = s[:m.start()] + replacement + s[m.end():]
 
-# Keep headings with enough following body text to avoid dangling headings and
-# one/two-line continuations in the next column.
-s = re.sub(r'(?m)^\\section\{', lambda m: r'\Needspace{6\baselineskip}' + '\n' + m.group(0), s)
-s = re.sub(r'(?m)^\\subsection\{', lambda m: r'\Needspace{5\baselineskip}' + '\n' + m.group(0), s)
+# Keep headings with roughly three body lines when they begin near a break.
+# Using a moderate reserve avoids creating visibly empty column bottoms.
+s = re.sub(r'(?m)^\\section\{', lambda m: r'\Needspace{4.4\baselineskip}' + '\n' + m.group(0), s)
+s = re.sub(r'(?m)^\\subsection\{', lambda m: r'\Needspace{3.8\baselineskip}' + '\n' + m.group(0), s)
 
 # arXiv disclosure of significant generative-AI assistance.
 disclosure = r'''\section*{AI Assistance Disclosure}
