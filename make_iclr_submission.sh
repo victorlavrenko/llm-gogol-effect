@@ -18,7 +18,8 @@ mkdir -p "$DIST" "$PKG"
 )
 
 # 2) Preflight PDF anonymity and size.
-PATTERN='Victor|Lavrenko|PeaceTech|peacetech\.vc|victorlavrenko|github\.com/victorlavrenko|C:\\Users\\lavre|/Users/lavre|/home/lavre'
+# Avoid generic first-name checks because they can legitimately occur in research data.
+PATTERN='Victor[[:space:]]+Lavrenko|Lavrenko|PeaceTech|peacetech\.vc|victorlavrenko|github\.com/victorlavrenko|C:\\Users\\lavre|/Users/lavre|/home/lavre'
 pdftotext "$DIST/iclr2027_submission.pdf" "$WORK/paper.txt"
 pdfinfo "$DIST/iclr2027_submission.pdf" > "$WORK/pdfinfo.txt"
 if grep -Eiq "$PATTERN" "$WORK/paper.txt" "$WORK/pdfinfo.txt"; then
