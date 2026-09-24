@@ -1,0 +1,56 @@
+name: ICLR 2027 submission package
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'paper/iclr_*'
+      - 'paper/iclr2027_conference.sty'
+      - 'submission/**'
+      - 'reproduction/**'
+      - 'gogol_extension/**'
+      - 'results/**'
+      - 'reproduce.sh'
+      - 'make_iclr_submission.sh'
+      - '.github/workflows/iclr2027-submission.yml'
+  workflow_dispatch:
+
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install analysis dependencies
+        run: python -m pip install -r reproduction/requirements.txt
+
+      - name: Reproduce frozen analyses
+        run: sh reproduce.sh
+
+      - name: Install LaTeX and PDF tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexmk texlive-latex-extra texlive-pictures texlive-fonts-recommended poppler-utils zip
+
+      - name: Build and anonymity-audit OpenReview package
+        run: sh make_iclr_submission.sh
+
+      - name: Show package summary
+        run: |
+          pdfinfo dist/iclr2027_submission.pdf | grep -E '^(Pages|File size|Author|Title):' || true
+          unzip -l dist/iclr2027_supplement.zip | tail -n 3
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iclr2027-openreview-package
+          path: |
+            dist/iclr2027_submission.pdf
+            dist/iclr2027_supplement.zip
+          if-no-files-found: error
+          retention-days: 30
