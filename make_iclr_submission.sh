@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
-set -Eeuo pipefail
+#!/usr/bin/env sh
+set -eu
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 DIST="$ROOT/dist"
 WORK="$ROOT/.iclr_build"
 PKG="$WORK/iclr2027_supplement"
@@ -10,11 +10,12 @@ rm -rf "$DIST" "$WORK"
 mkdir -p "$DIST" "$PKG"
 
 # 1) Build the anonymous ICLR paper.
-pushd "$ROOT/paper" >/dev/null
-latexmk -pdf -interaction=nonstopmode -halt-on-error \
-  -jobname=iclr2027_submission iclr_main.tex
-cp iclr2027_submission.pdf "$DIST/iclr2027_submission.pdf"
-popd >/dev/null
+(
+  cd "$ROOT/paper"
+  latexmk -pdf -interaction=nonstopmode -halt-on-error \
+    -jobname=iclr2027_submission iclr_main.tex
+  cp iclr2027_submission.pdf "$DIST/iclr2027_submission.pdf"
+)
 
 # 2) Preflight PDF anonymity and size.
 PATTERN='Victor|Lavrenko|PeaceTech|peacetech\.vc|victorlavrenko|github\.com/victorlavrenko|C:\\Users\\lavre|/Users/lavre|/home/lavre'
@@ -25,8 +26,9 @@ if grep -Eiq "$PATTERN" "$WORK/paper.txt" "$WORK/pdfinfo.txt"; then
   grep -Ein "$PATTERN" "$WORK/paper.txt" "$WORK/pdfinfo.txt" >&2 || true
   exit 1
 fi
-PDF_BYTES=$(stat -c%s "$DIST/iclr2027_submission.pdf")
-if (( PDF_BYTES > 50 * 1024 * 1024 )); then
+PDF_BYTES=$(wc -c < "$DIST/iclr2027_submission.pdf" | tr -d ' ')
+PDF_LIMIT=$((50 * 1024 * 1024))
+if [ "$PDF_BYTES" -gt "$PDF_LIMIT" ]; then
   echo "ERROR: PDF exceeds OpenReview 50 MB limit" >&2
   exit 1
 fi
@@ -45,10 +47,11 @@ find "$PKG" -type f \( -name '*.pyc' -o -name '.DS_Store' \) -delete
 
 # 4) Fail closed on author-identifying content in anything uploaded to reviewers.
 # Use -a so SQLite/JSON/CSV/log artifacts are also scanned as byte streams.
-mapfile -t BAD_FILES < <(grep -aRIlE "$PATTERN" "$PKG" || true)
-if (( ${#BAD_FILES[@]} > 0 )); then
+BAD_LIST="$WORK/identifying_files.txt"
+grep -aRIlE "$PATTERN" "$PKG" > "$BAD_LIST" 2>/dev/null || true
+if [ -s "$BAD_LIST" ]; then
   echo "ERROR: identifying content found in anonymous supplement:" >&2
-  printf '  %s\n' "${BAD_FILES[@]}" >&2
+  sed 's/^/  /' "$BAD_LIST" >&2
   exit 1
 fi
 
@@ -64,8 +67,9 @@ fi
   zip -q -r "$DIST/iclr2027_supplement.zip" iclr2027_supplement
 )
 
-ZIP_BYTES=$(stat -c%s "$DIST/iclr2027_supplement.zip")
-if (( ZIP_BYTES > 100 * 1024 * 1024 )); then
+ZIP_BYTES=$(wc -c < "$DIST/iclr2027_supplement.zip" | tr -d ' ')
+ZIP_LIMIT=$((100 * 1024 * 1024))
+if [ "$ZIP_BYTES" -gt "$ZIP_LIMIT" ]; then
   echo "ERROR: supplement exceeds OpenReview 100 MB limit" >&2
   exit 1
 fi
