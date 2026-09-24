@@ -1,0 +1,68 @@
+\appendix
+\section{Frozen Prompt and Execution Protocol}
+\label{app:protocol}
+The frozen bank contains 100 English primary prompts and 10 non-English validation prompts. The English main subset is balanced at four prompts per domain. The generated-post contract is 5--8 sentences. The scoring scale is 0 (very human-like) to 100 (obviously AI-generated), estimating how likely an average human reader would be to think the sentence was AI-generated. The frozen system instruction was: ``Follow the user's writing task and formatting instructions exactly. Return only the requested output.''
+
+The main API run was executed on September 7, 2026. All primary conditions used temperature 0.7. Output caps were 4096 tokens for LIVE and POST and 1024 for each REPLAY call; no explicit input truncation was applied. Seed was 20260907, with up to 20 global workers, at most one worker per model, and three retries. Provider policy was OpenRouter automatic routing with fallbacks enabled.
+
+\paragraph{Common user prefix.} Every LIVE, POST, and REPLAY user message begins with the original writing task followed by the same scoring instruction. LIVE then appends: ``Produce the requested text now and follow the scoring instruction exactly.''
+
+\paragraph{POST template.} POST receives the complete frozen text with one \texttt{<AI SCORE: ?>} placeholder per sentence and the instruction: ``The requested text has already been produced below. Assess that exact completed text without rewriting it. There are N placeholders, one for each sentence. Return exactly the same number of \texttt{<AI SCORE: n>} tags, one per line and in sentence order. Do not repeat, continue, or rewrite the text.''
+
+\paragraph{REPLAY template.} REPLAY receives only the text prefix through the target sentence, with the final score replaced by \texttt{<AI SCORE: ?>}. It is instructed: ``Continue the assessment for the text below. The only missing content is the single final \texttt{<AI SCORE: ?>}. Do not repeat, continue, or rewrite the text. Replace that placeholder with the score required by the scoring instruction and return only \texttt{<AI SCORE: n>}.'' Later REPLAY steps include earlier REPLAY scores rather than corresponding LIVE scores.
+
+\section{Coverage and Calibration}
+\label{app:coverage}
+\begin{table}[h]
+\centering\small
+\caption{English paired LIVE--POST coverage and reliability.}
+\begin{tabular}{lrrrr}
+\toprule Model & $Q$ & mean $\rho$ & Pair & MAE\\\midrule
+Claude Opus 5 & 37 & .820 & .866 & 7.0\\
+GPT-5.5 & 40 & .817 & .864 & 5.8\\
+Llama 3.3 70B & 40 & .685 & .802 & 7.8\\
+GPT-OSS-120B & 40 & .640 & .792 & 8.6\\
+Ministral 14B & 12 & .521 & .719 & 5.1\\
+DeepSeek V4 & 32 & .504 & .723 & 9.7\\
+Gemma 3 12B & 35 & .491 & .705 & 15.8\\
+DeepSeek V3.2 & 18 & .444 & .690 & 16.5\\
+Gemini 3.1 Pro & 40 & .345 & .659 & 24.5\\
+Qwen3 30B & 39 & .329 & .649 & 4.2\\\bottomrule
+\end{tabular}
+\end{table}
+Protocol failures were predominantly failures to obey the exact sentence-plus-score contract. Missing scores were not imputed. Because adherence may correlate with prompt difficulty or output complexity, low-coverage estimates can suffer survivorship bias and should not be read as controlled head-to-head comparisons.
+
+\begin{table}[h]
+\centering\small
+\caption{Five-fold prompt-grouped LIVE$\rightarrow$POST MAE.}
+\begin{tabular}{lrrr}\toprule Model&Raw&Offset&Affine\\\midrule
+Qwen3 30B&4.25&4.47&3.73\\
+GPT-5.5&5.79&5.49&5.49\\
+Claude Opus 5&7.02&6.64&6.32\\
+Llama 3.3 70B&7.84&8.41&7.17\\
+GPT-OSS-120B&8.63&7.47&6.87\\
+DeepSeek V4&9.65&9.86&9.16\\
+Gemini 3.1 Pro&24.47&20.07&20.43\\\bottomrule
+\end{tabular}
+\end{table}
+These mappings target agreement with the model's own POST scores, not calibration to human probabilities.
+
+\section{Adaptive REPLAY Breadth Extension}
+\label{app:adaptive}
+The breadth cohort was Claude Opus 5, DeepSeek V4 Flash, GPT-OSS-120B, and Llama 3.3-70B-Instruct. Qwen3 and Gemma 3 were excluded because earlier REPLAY calls frequently violated the single-score contract; DeepSeek V3.2 and Ministral had substantially lower usable LIVE/POST coverage. An already-inspected four-prompt REPLAY pilot was retained in effect-size estimates. New prompts were then added in frozen blocks of four up to 24 per model. Models stopped receiving API calls once an exploratory cumulative one-sided test for $P-R>0$ crossed .05. Because the stopping rule was chosen after inspection of the four-prompt pilot, cumulative stopping $p$-values are descriptive. For inferential support, the fresh extension prompts were additionally tested with a Bonferroni correction over the five possible future looks. GPT-OSS-120B crosses at total $N=8$ ($p_{\rm adj}=.021$), DeepSeek V4 Flash at $N=12$ ($p_{\rm adj}=.040$), while Claude and Llama continue to the 24-prompt cap.
+
+For the fixed 40-prompt set, Gemini's $R-L$ mean is $+2.772$ (one-sided $t$ test $p=.0102$; Wilcoxon $p=.0292$) and GPT-5.5's is $-3.103$ (positive-direction $p=.9995$). Their $P-R$ means are $+20.061$ and $+6.914$, respectively. Descriptive 95\% intervals at the breadth cap are $[-4.10,4.58]$ for Llama's $P-R$ and $[-4.15,0.06]$ for Claude's.
+
+\section{Equal-Compute Rewrite Check}
+\label{app:rewrite}
+Each arm receives the original writing task, the full frozen generated text, and the target sentence. The exact instruction is: ``Rewrite only the TARGET SENTENCE so that an average human reader would be less likely to think it was AI-generated. Preserve its intended meaning and factual content, keep it as one sentence, and make it fit naturally into the frozen text. Do not rewrite any other sentence. Return only the replacement sentence, with no score, label, explanation, quotation marks around the whole answer, or additional text.'' The replacement is spliced into the frozen document and a fresh POST call scores every sentence. The outcome is the corrected document's mean POST score.
+
+GPT-5.5 has 40 valid pairs. Gemini has 37: three pairs were excluded solely because one rewrite violated the strict one-line/one-sentence parser (random arm on one prompt, guided arm on one prompt, and random arm on one prompt). No exclusion depended on the resulting score. The corresponding one-sided Wilcoxon $p$-values are .677 and .392.
+
+\section{Held-Out Robustness Details}
+A 16-prompt cohort collected LIVE, POST, and preselected REPLAY under four elicitation variants. A separate 24-prompt follow-up, frozen after the first cohort was inspected, collected all 192 LIVE and 192 POST cells. No successfully completed cell was regenerated because of its observed score. On the fresh 24 prompts, mean $P-L$ shifts for GPT-5.5/Gemini were: original $6.56/8.93$, paraphrase $2.95/6.11$, reverse-coded $1.21/6.24$, and minimal tag $10.61/13.16$. The initial 16-prompt REPLAY cohort also preserved the qualitative decomposition: $P-R$ exceeded $R-L$ in all eight model--elicitation cells.
+
+The 10-prompt held-out temperature control produced the following prompt-mean decomposition: at $T=0$, GPT-5.5 $P-L=+5.17$ (95\% bootstrap CI $[1.57,9.88]$), $R-L=-1.97$, $P-R=+7.13$; Gemini $P-L=+25.26$ ($[16.80,33.81]$), $R-L=-0.01$, $P-R=+25.27$. At $T=.7$, GPT-5.5 gives $+1.95$, $-3.72$, $+5.67$, and Gemini $+13.87$, $-1.63$, $+15.50$, respectively.
+
+\section{Reproducibility Package}
+The anonymous supplementary archive contains the frozen prompt bank, manifests, route identifiers, stored outputs, derived score tables, REPLAY and correction artifacts, robustness and temperature-control runs, the adaptive cross-model extension with every interim look, analysis scripts, and deterministic expected outputs. Analyses can be reproduced from the frozen outputs without provider credentials. Exact regeneration of hosted model outputs is not guaranteed because model serving and provider routing are external dependencies.
