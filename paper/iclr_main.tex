@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{iclr2027_conference,times}
+\usepackage{amsmath,amssymb,booktabs,graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{pdfauthor={Anonymous},pdftitle={Beyond the IKEA Effect in LLMs: Post-Completion Self-Devaluation}}
+
+\title{Beyond the IKEA Effect in LLMs: Post-Completion Self-Devaluation}
+\author{Anonymous authors}
+
+\newcommand{\live}{\textsc{Live}}
+\newcommand{\replay}{\textsc{Replay}}
+\newcommand{\post}{\textsc{Post}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Inference-time search, self-correction, and branch selection increasingly use language models to score their own intermediate generations. Such systems often treat an online score as if it were interchangeable with the score the same model would assign later. We test that assumption with a matched \live{}--\replay{}--\post{} protocol. \live{} records a sentence score on the original writing trajectory; \replay{} reconstructs the same visible prefix in a fresh call; \post{} scores the sentence after the completed output is visible. This decomposes the total retrospective shift into an IKEA-like writer-state component ($R-L$) and a completion-associated component ($P-R$). Across six models with sufficiently developed three-state data, only one has a positive mean IKEA-like shift ($+2.77$ points), while the other five move in the opposite direction. By contrast, four of six show positive post-completion self-devaluation, with mean $P-R$ shifts from $+3.18$ to $+20.06$ points; one model is near zero and one moves oppositely. In the strongest case, about 88\% of the total \live{}--\post{} change appears only after completion. We call this model-dependent pattern the \emph{Gogol effect}. Separate audits show that score-level error and within-output rank stability are distinct: calibration can reduce level error but cannot repair unstable local rankings. Held-out elicitation and temperature controls preserve the main directional result. The implication is diagnostic rather than psychological: online self-scores can be useful control signals, but their temporal stability, ranking geometry, and dependence on future context must be measured rather than assumed.
+\end{abstract}
+
+\input{iclr_body1}
+\input{iclr_body2}
+\input{iclr_statements}
+\input{iclr_refs}
+\input{iclr_appendix}
+\end{document}
