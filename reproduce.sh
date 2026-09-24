@@ -1,6 +1,7 @@
-#!/usr/bin/env bash
-set -Eeuo pipefail
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+#!/usr/bin/env sh
+set -eu
+
+ROOT="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 cd "$ROOT"
 
 PYTHON_BIN="${PYTHON_BIN:-python}"
@@ -11,5 +12,4 @@ PYTHON_BIN="${PYTHON_BIN:-python}"
   --adaptive-results gogol_extension/gogol_step4_results.json \
   --out results/six_model_effects.csv
 
-echo
-echo "Reproduction complete. Headline table: results/six_model_effects.csv"
+printf '\nReproduction complete. Headline table: results/six_model_effects.csv\n'
