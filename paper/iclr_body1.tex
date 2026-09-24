@@ -1,0 +1,67 @@
+\section{Introduction}
+Large language models increasingly evaluate their own intermediate outputs. Agents critique actions before execution, reasoning systems score partial trajectories, and iterative methods use self-evaluation to decide whether to continue, revise, or abandon an answer \citep{madaan2023selfrefine,shinn2023reflexion,lightman2023verify,snell2024testtime}. These methods create an operational assumption that is easy to overlook: a score emitted \emph{during} generation is treated as a proxy for the score that would be available later.
+
+That assumption need not hold. A model may evaluate the same text differently because it is still on the writing trajectory, because a fresh call changes the conversational state, because later text provides evidence unavailable earlier, or simply because its evaluator is noisy. Existing work already shows self-preference, self-attribution, ownership-like biases, and trajectory-dependent confidence in LLMs \citep{panickssery2024recognize,xu2024pride,khullar2026selfattribution,sanzguerrero2026ownership,han2025finece,gai2026premature,yang2026mirage}. The question here is narrower: \emph{what part of the online-to-retrospective discrepancy is associated with leaving the original writing trajectory, and what part appears only after the output is complete?}
+
+The distinction matters because a large \live{}--\post{} gap can invite an IKEA-like interpretation: perhaps the model ``likes'' its own output while producing it and becomes more critical later. We test that interpretation using three evaluation states. \live{} is the score emitted on the original generation trajectory. \replay{} reconstructs the visible prefix through the same sentence in a fresh call. \post{} evaluates that sentence after the full output is available. For a sentence with scores $L$, $R$, and $P$,
+\begin{equation}
+P-L=(R-L)+(P-R).
+\label{eq:decomp}
+\end{equation}
+Our score is AI-likeness, where higher means less favorable to the generated text. Thus $R-L>0$ is directionally consistent with an IKEA-like writer/self-attribution effect, while $P-R>0$ means the sentence is judged more harshly only after completion. We call the latter operational pattern \emph{post-completion self-devaluation}, or, for memorability, the \emph{Gogol effect}. The name alludes to Nikolai Gogol's famous destruction of much of the second part of \emph{Dead Souls} late in his life \citep{gogolbio}; it is a literary metaphor, not a claim that models experience regret, ownership, or any human mental state.
+
+The central result reverses the motivating story. Across six models with developed three-state data, a positive IKEA-like mean appears in only one model, and is modest. Positive post-completion self-devaluation appears in four, and can be much larger. The strongest case assigns roughly 88\% of its total retrospective shift to $P-R$, not $R-L$. A two-state design would conflate these qualitatively different trajectories.
+
+We make four contributions. First, we introduce a matched \live{}--\replay{}--\post{} diagnostic that separates a writer-state-associated component from a completion-associated component without claiming a hidden-state causal intervention. Second, we show that the IKEA-like explanation is uncommon in our six-model decomposition, while post-completion self-devaluation is recurrent but model-dependent. Third, we separate \emph{level agreement} from \emph{rank reliability}: a calibratable offset is not the same failure as a changed local ordering. Fourth, we stress-test the result with held-out elicitation variants, a temperature control, and an equal-compute rewrite check.
+
+Our endpoint is intentionally narrow: perceived AI-likeness of short factual social posts. It is useful because the same scalar judgment can be elicited online and retrospectively, but it is not a validated probability of human detection and it is not correctness confidence. We therefore do not claim that the observed decomposition generalizes unchanged to mathematical or code verification. Testing that task dependence is an important next step.
+
+\section{Related Work}
+\paragraph{Self-evaluation and trajectory-dependent confidence.}
+LLMs can provide informative self-estimates under some elicitation schemes \citep{kadavath2022know}, and self-feedback is used in iterative methods such as Self-Refine and Reflexion \citep{madaan2023selfrefine,shinn2023reflexion}. More recent work explicitly studies confidence along a developing trajectory. FineCE uses later text to revise confidence about earlier prefixes \citep{han2025finece}; premature-confidence work links early commitment to flawed reasoning \citep{gai2026premature}; and trajectory-grounding work shows that apparently calibrated confidence can remain weakly tied to the actual reasoning path \citep{yang2026mirage}. Our novelty claim is therefore not that confidence changes over time, but the matched three-state decomposition of the same generated material.
+
+\paragraph{Self-preference and self-attribution.}
+LLM judges exhibit evaluator biases even when they correlate with human preferences \citep{zheng2023judge,wang2024fair}. Models can favor outputs from themselves or their model family \citep{liu2024narcissistic,panickssery2024recognize,wataoka2024selfpreference}; self-refinement can amplify self-bias \citep{xu2024pride}; and identical content may be judged more favorably when conversational structure attributes it to the evaluator itself \citep{khullar2026selfattribution,sanzguerrero2026ownership}. These results motivate the IKEA analogy but do not establish that such bias explains a \live{}--retrospective gap.
+
+\paragraph{Inference-time control.}
+Selectors, verifiers, and self-correction systems consume model-produced scores and critiques \citep{wang2023selfconsistency,lightman2023verify,snell2024testtime}. Trained systems such as SCoRe target self-correction directly \citep{kumar2025score}. We do not benchmark a general self-correction algorithm; our concern is upstream: whether a score available online preserves the ordering or level that the same scoring rule would produce later.
+
+\section{Three-State Audit}
+\subsection{Evaluation states and contrasts}
+For model $m$, prompt $q$, and sentence $i$, let $L_{mqi}$, $R_{mqi}$, and $P_{mqi}$ denote \live{}, \replay{}, and \post{} scores. Scores range from 0 (very human-like) to 100 (obviously AI-generated). We use two signed contrasts:
+\begin{align}
+\Delta^{\mathrm{IKEA}} &= R-L,\\
+\Delta^{\mathrm{Gogol}} &= P-R.
+\end{align}
+Positive $R-L$ means \live{} was more favorable than a fresh prefix-matched replay. Positive $P-R$ means the earlier text is judged more AI-like after the completed response becomes available. These are operational state contrasts, not psychological constructs.
+
+\subsection{Three properties of an online score}
+\paragraph{Rank reliability.}
+For local selection, the key question is whether \live{} preserves the ordering later assigned by \post{}. We report mean within-output Spearman correlation
+\begin{equation}
+\mathcal{R}_m=\frac{1}{|Q_m|}\sum_{q\in Q_m}\rho_s(L_{mq\cdot},P_{mq\cdot})
+\end{equation}
+and non-tied pairwise ordering agreement. This directly matches decisions such as ``which sentence should be revised?''
+
+\paragraph{Level agreement.}
+We report bias $\mathbb{E}[L-P]$ and MAE $\mathbb{E}|L-P|$. A stable shift may be correctable without changing ranking. We therefore fit offset-only and affine \live{}$\rightarrow$\post{} mappings with five-fold cross-validation grouped by prompt.
+
+\paragraph{State stability.}
+\replay{} asks whether a fresh call given approximately the same visible prefix reproduces the online judgment. Importantly, hosted APIs do not expose hidden activations, and later REPLAY steps contain REPLAY's own earlier score tokens rather than the corresponding LIVE scores. Thus Eq.~\ref{eq:decomp} is algebraically exact, while the causal interpretation of its components is deliberately limited. $R-L$ includes writer-versus-fresh-call differences plus any divergence in prior score-token history; $P-R$ includes completion information plus the retrospective prompting transition.
+
+\subsection{What the audit does not establish}
+\post{} is not ground truth. Weak \live{}--\post{} agreement could reflect state sensitivity, a weak retrospective evaluator, or both. The audit is appropriate when a controller intends to substitute an online score for a delayed score from the \emph{same evaluation rule}. External validity requires a separate benchmark with task-specific labels or human judgments. This distinction addresses evaluator reliability directly: our claim is consistency across states, not that the model is an objectively correct judge.
+
+\section{Experimental Design}
+\subsection{Probe, prompts, and models}
+We froze 110 factual social-writing prompts: 100 English primary prompts and 10 non-English validation prompts. Each asks for a 5--8 sentence social-network post; topics span ten domains. The main English confirmation set contains 40 prompts, four per domain. After every sentence in \live{}, the generating model emits an integer AI-likeness score. \post{} receives the completed clean output with one score placeholder per sentence. \replay{} reconstructs the textual prefix through a target sentence and requests only that sentence's missing score. Exact templates appear in Appendix~\ref{app:protocol}.
+
+We attempted ten models through frozen OpenRouter route identifiers: GPT-5.5, Claude Opus 5, Gemini 3.1 Pro Preview, DeepSeek V4 Flash, DeepSeek V3.2, GPT-OSS-120B, Llama 3.3-70B-Instruct, Qwen3-30B-A3B-Instruct, Ministral 14B, and Gemma 3-12B-IT. All primary calls, including isolated numeric-score calls, used temperature 0.7. Provider routing used OpenRouter automatic routing with fallbacks, a reproducibility limitation we report rather than hide.
+
+\subsection{Confirmation and REPLAY extension}
+The original adaptive confirmation used planned looks at $N\in\{40,50,60,70,80,90,100\}$ with familywise $\alpha=.05$. It stopped at $N=40$ when three pre-specified tests crossed the Bonferroni boundary: GPT-5.5 prompt-level mean-score \live{}--\post{} Spearman exceeded a reference $\rho_0=.2$; Gemini's mean $P-L$ exceeded five points; and Gemini's shift exceeded GPT-5.5's by more than five points. The prompt-level statistic correlates, across prompts, each output's mean LIVE score with its mean POST score; this is distinct from the within-output ranking metric above.
+
+Full REPLAY was then collected on all 40 English prompts for GPT-5.5 and Gemini. To broaden the decomposition, four additional models with adequate LIVE/POST coverage and reliable REPLAY parsing were extended adaptively in frozen blocks of four, up to 24 prompts. Because an initial four-prompt pilot had already been inspected, cumulative stopping $p$-values are descriptive; inferential support for positive breadth extensions uses only newly added prompts with Bonferroni correction over the possible future looks. Details are in Appendix~\ref{app:adaptive}.
+
+\subsection{Robustness and downstream check}
+Two held-out cohorts vary the scoring surface: original wording/tag, a semantic paraphrase, reverse-coded human-likeness (normalized as $100-n$), and a minimal numeric tag. A separate 10-prompt control runs full \live{}--\replay{}--\post{} at both $T=0$ and $T=.7$ for GPT-5.5 and Gemini. Finally, an equal-compute rewrite check compares rewriting the highest LIVE-scored sentence against rewriting a deterministic random different sentence. Both arms use the same instruction and are evaluated by a fresh POST pass over the corrected document. The exact rewrite prompt and exclusions are in Appendix~\ref{app:rewrite}.
