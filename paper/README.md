@@ -1,22 +1,27 @@
-# arXiv source package
+# Paper sources
 
-Paper: **The Gogol Effect in LLMs: Post-Completion Self-Devaluation**  
-Author: Victor Lavrenko, PeaceTech VC, Israel — victor@peacetech.vc  
-Revision date: **23 September 2026**
+## ICLR 2027 submission
 
-This is a pure-LaTeX paper source. Figures are defined in `figures.tex` with TikZ/PGFPlots; no generated figure PDFs or Python build scripts are required.
+The OpenReview submission source is split across:
 
-Compile with:
+- `iclr_main.tex`
+- `iclr_body1.tex`
+- `iclr_body2.tex`
+- `iclr_statements.tex`
+- `iclr_refs.tex`
+- `iclr_appendix.tex`
+- `iclr2027_conference.sty`
+
+Do **not** upload `paper/paper.pdf` to ICLR: it is the older non-anonymous manuscript.
+
+The supported submission workflow is run from the repository root:
 
 ```bash
-pdflatex main.tex
-pdflatex main.tex
+sh make_iclr_submission.sh
 ```
 
-Central six-model result:
-- positive mean IKEA-like REPLAY−LIVE shift in 1/6 models;
-- positive evidence of a Gogol POST−REPLAY shift in 4/6 models;
-- two models show no positive Gogol effect at the available cap (one near zero, one negative).
+It builds `dist/iclr2027_submission.pdf` and `dist/iclr2027_supplement.zip`, scans both outputs for identifying strings, and enforces the OpenReview file-size limits. The CI workflow `.github/workflows/iclr2027-submission.yml` runs the frozen analysis reproduction before creating the same package.
 
-Public reproduction repository:
-https://github.com/victorlavrenko/llm-gogol-effect
+## Earlier manuscript
+
+`main.tex`, `figures.tex`, and `paper.pdf` are retained only as the earlier named/arXiv manuscript source. They are not the ICLR submission files.
