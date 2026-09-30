@@ -29,12 +29,31 @@ case "$MODE" in
     "$PY" "$EXP/analyze_self_monitoring_control.py" \
       --run "$EXP/run_full_v3"
     ;;
+  repair-full)
+    "$PY" "$EXP/repair_v3_length_failures.py" \
+      --source "$EXP/run_full_v3" \
+      --out "$EXP/run_full_v3_repaired"
+    "$PY" "$EXP/analyze_self_monitoring_control.py" \
+      --run "$EXP/run_full_v3_repaired"
+    ;;
+  repair-full-resume)
+    "$PY" "$EXP/repair_v3_length_failures.py" \
+      --source "$EXP/run_full_v3" \
+      --out "$EXP/run_full_v3_repaired" \
+      --resume
+    "$PY" "$EXP/analyze_self_monitoring_control.py" \
+      --run "$EXP/run_full_v3_repaired"
+    ;;
   analyze)
     "$PY" "$EXP/analyze_self_monitoring_control.py" \
       --run "$EXP/run_full_v3"
     ;;
+  analyze-repaired)
+    "$PY" "$EXP/analyze_self_monitoring_control.py" \
+      --run "$EXP/run_full_v3_repaired"
+    ;;
   *)
-    echo "usage: sh run_self_monitoring_control.sh [dry|smoke|full|analyze]" >&2
+    echo "usage: sh run_self_monitoring_control.sh [dry|smoke|full|repair-full|repair-full-resume|analyze|analyze-repaired]" >&2
     exit 2
     ;;
 esac
