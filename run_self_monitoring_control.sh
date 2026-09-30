@@ -12,26 +12,26 @@ case "$MODE" in
   dry)
     "$PY" "$RUNNER" \
       --mode smoke \
-      --out "$EXP/run_smoke" \
+      --out "$EXP/run_smoke_v2" \
       --dry-run
     ;;
   smoke)
     "$PY" "$RUNNER" \
       --mode smoke \
-      --out "$EXP/run_smoke"
+      --out "$EXP/run_smoke_v2"
     "$PY" "$EXP/analyze_self_monitoring_control.py" \
-      --run "$EXP/run_smoke"
+      --run "$EXP/run_smoke_v2"
     ;;
   full)
     "$PY" "$RUNNER" \
       --mode full \
-      --out "$EXP/run_full"
+      --out "$EXP/run_full_v2"
     "$PY" "$EXP/analyze_self_monitoring_control.py" \
-      --run "$EXP/run_full"
+      --run "$EXP/run_full_v2"
     ;;
   analyze)
     "$PY" "$EXP/analyze_self_monitoring_control.py" \
-      --run "$EXP/run_full"
+      --run "$EXP/run_full_v2"
     ;;
   *)
     echo "usage: sh run_self_monitoring_control.sh [dry|smoke|full|analyze]" >&2
