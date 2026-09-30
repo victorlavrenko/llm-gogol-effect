@@ -15,6 +15,15 @@ Both artifacts are then scored by the same model using:
 The primary question is whether `POST - PREFIX` remains positive in the
 `plain` generation arm.
 
+## Protocol version
+
+The current runner is **v2**. The first disjoint smoke test exposed a formatting-only
+Gemini parser problem in the inherited `<AI SCORE: n>` evaluator output syntax.
+Before any full-cohort calls were made, PREFIX/POST output was changed to bare
+numeric lines. See `FROZEN_PROTOCOL.md` for the amendment and rationale.
+
+The original v1 smoke workspace, if present, is retained and never pooled with v2.
+
 ## Windows Git Bash
 
 From the repository root:
@@ -24,13 +33,25 @@ git pull
 python -m pip install -r reproduction/requirements.txt
 ```
 
-First run the disjoint smoke cohort (4 prompts outside the main 40):
+First inspect prompts without spending API credits:
+
+```bash
+sh run_self_monitoring_control.sh dry
+```
+
+Then run the corrected disjoint smoke cohort:
 
 ```bash
 sh run_self_monitoring_control.sh smoke
 ```
 
-Inspect `reproduction/self_monitoring_control/run_smoke/generation_qc.csv`.
+Inspect:
+
+```text
+reproduction/self_monitoring_control/run_smoke_v2/generation_qc.csv
+reproduction/self_monitoring_control/run_smoke_v2/model_summary.csv
+```
+
 Smoke results are not used in the full analysis.
 
 Then run the frozen 40-prompt experiment:
@@ -40,24 +61,19 @@ sh run_self_monitoring_control.sh full
 ```
 
 The script runs collection and then analysis. It is resumable: rerunning the
-same command skips successful cells.
-
-To inspect the exact prompts without spending API credits:
-
-```bash
-sh run_self_monitoring_control.sh dry
-```
+same command skips stored complete/error cells rather than resampling until
+compliance.
 
 ## Return results
 
-After the full run, package the complete workspace:
+After the full run, package the complete v2 workspace:
 
 ```bash
-tar -czf self-monitoring-control-results.tgz \
-  reproduction/self_monitoring_control/run_full
+tar -czf self-monitoring-control-results-v2.tgz \
+  reproduction/self_monitoring_control/run_full_v2
 ```
 
-Send `self-monitoring-control-results.tgz` back for interpretation and paper
+Send `self-monitoring-control-results-v2.tgz` back for interpretation and paper
 integration.
 
 ## Main outputs
