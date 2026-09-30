@@ -1,4 +1,4 @@
-# Frozen protocol: self-monitoring intervention control
+# Frozen protocol: self-monitoring intervention control (v2)
 
 ## Purpose
 
@@ -8,8 +8,30 @@ writing. This control asks whether that online self-monitoring instruction
 changes the generated artifact or is necessary for the post-completion
 self-devaluation pattern.
 
-This protocol is a prospective follow-up control. It was specified before any
-calls from this control experiment were inspected.
+This is a prospective follow-up control. The substantive design was specified
+before any calls from the control were inspected.
+
+## Protocol-v2 amendment after disjoint smoke test
+
+The four-prompt smoke cohort (balanced-order positions 41-44) exposed a purely
+syntactic failure in the initial evaluator interface: Gemini frequently returned
+an interpretable numeric score using a slightly noncanonical `<AI SCORE: ...>`
+wrapper, causing the inherited V5.7 tag parser to mark otherwise usable PREFIX
+calls missing. No full-cohort calls had been made.
+
+Before running the full cohort, evaluator output syntax was therefore simplified
+without changing the scoring criterion or any scientific estimand:
+
+- PREFIX now requests exactly one bare integer from 0 to 100.
+- POST now sees clean completed prose with no score placeholders and requests
+  exactly N bare integers, one per line.
+- Parsing accepts only unambiguous numeric score lines in 0..100, with narrow
+  tolerance for harmless wrappers such as a missing closing angle bracket or `%`.
+- The original v1 smoke workspace is retained and excluded. V2 uses fresh
+  `run_smoke_v2` and `run_full_v2` workspaces.
+
+This amendment was made solely in response to output-format compliance observed
+in the disjoint smoke cohort; no full-cohort outcome was observed.
 
 ## Models
 
@@ -77,14 +99,17 @@ randomized.
 For sentence i, a fresh call receives the original writing task and prose only
 through sentence i. It sees no earlier scores. The last visible sentence is
 rated 0-100 for how likely an average human reader would think it AI-generated.
+The response format is exactly one bare integer.
 
 This is intentionally cleaner than the original REPLAY condition because no
 prior score tokens are inserted into the prefix.
 
 ### POST
 
-A fresh call sees the completed generated text and scores every sentence under
-the same criterion.
+A fresh call sees the clean completed generated prose, with no score placeholders,
+and scores every sentence under the same criterion. If the frozen segmentation
+has N sentences, the response format is exactly N bare integers, one per line
+and in sentence order.
 
 Evaluation temperature is 0.7 by default to match the main study.
 
@@ -144,7 +169,8 @@ No adaptive stopping is used in the full cohort.
 Transport/429/5xx failures may be retried using the inherited OpenRouter
 transport retry policy. A successfully completed generation is never regenerated
 because of its observed content or score. Parse/format failures are reported as
-missing cells rather than imputed.
+missing cells rather than imputed. Stored errors are terminal within a frozen
+workspace, so rerunning does not resample until compliance.
 
 ## Separation from the main paper
 
